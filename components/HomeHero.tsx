@@ -31,8 +31,8 @@ export function HomeHero() {
     <div className="hero-slides">{slides.map((src,index) => <Image key={src} src={src} alt="" fill priority={index===0} loading="eager" sizes="100vw" className={`hero-image ${index===active ? "active" : ""}`} />)}</div>
     <div className="hero-overlay" />
     <div className="hero-content container">
-      <h1>COMMERCIAL CONSTRUCTION ACROSS WAIKATO &amp; BEYOND</h1>
-      <p>MITCHELL CONSTRUCTION DELIVERS TRUSTED COMMERCIAL BUILDING, PROJECT MANAGEMENT, EDUCATION, ACCESSIBILITY AND MODULAR CONSTRUCTION PROJECTS ACROSS WAIKATO, BAY OF PLENTY, AUCKLAND AND WIDER NEW ZEALAND. BACKED BY DECADES OF EXPERIENCE, WE BRING PRACTICAL PLANNING, PROVEN WORKMANSHIP AND A RELIABLE TEAM TO EVERY PROJECT.</p>
+      <h1 className="hero-swipe hero-swipe-left">COMMERCIAL CONSTRUCTION ACROSS WAIKATO &amp; BEYOND</h1>
+      <p className="hero-swipe hero-swipe-right">MITCHELL CONSTRUCTION DELIVERS TRUSTED COMMERCIAL BUILDING, PROJECT MANAGEMENT, EDUCATION, ACCESSIBILITY AND MODULAR CONSTRUCTION PROJECTS ACROSS WAIKATO, BAY OF PLENTY, AUCKLAND AND WIDER NEW ZEALAND. BACKED BY DECADES OF EXPERIENCE, WE BRING PRACTICAL PLANNING, PROVEN WORKMANSHIP AND A RELIABLE TEAM TO EVERY PROJECT.</p>
       <div className="hero-actions"><Link className="button button-ghost" href="/services">SERVICES</Link><Link className="button button-ghost" href="/contact-us">CONTACT</Link></div>
     </div>
     <div className="home-facts">

@@ -16,8 +16,8 @@ export function Hero({ title, description, image, primary = "SERVICES", primaryH
       <Image src={image} alt="" fill priority sizes="100vw" className="hero-image" />
       <div className="hero-overlay" />
       <div className="hero-content container">
-        <h1>{title}</h1>
-        <p>{description}</p>
+        <h1 className="hero-swipe hero-swipe-left">{title}</h1>
+        <p className="hero-swipe hero-swipe-right">{description}</p>
         <div className="hero-actions">
           <Link className="button button-white" href={primaryHref}>{primary} <span>→</span></Link>
           <Link className="button button-ghost" href={secondaryHref}>{secondary} <span>→</span></Link>
