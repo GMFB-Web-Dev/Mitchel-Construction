@@ -121,8 +121,14 @@ p{margin-bottom:22px}
 .socials{display:flex;gap:16px}
 .socials span{width:30px;height:30px;border:1px solid #fff;border-radius:50%;display:grid;place-items:center;font-size:12px}
 
-.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.2,.65,.3,1),transform .7s cubic-bezier(.2,.65,.3,1)}
-.reveal.is-visible{opacity:1;transform:none}
+.reveal{opacity:0}
+.reveal.is-visible{opacity:1}
+.reveal.is-visible.reveal-from-left{animation:reveal-fade-in-left 1.25s ease both}
+.reveal.is-visible.reveal-from-right{animation:reveal-fade-in-right 1.25s ease both}
+.reveal.is-visible.reveal-from-up{animation:reveal-fade-in-up 1.25s ease both}
+@keyframes reveal-fade-in-left{from{opacity:0;transform:translate3d(-100%,0,0)}to{opacity:1;transform:none}}
+@keyframes reveal-fade-in-right{from{opacity:0;transform:translate3d(100%,0,0)}to{opacity:1;transform:none}}
+@keyframes reveal-fade-in-up{from{opacity:0;transform:translate3d(0,100%,0)}to{opacity:1;transform:none}}
 .detail-sections .detail-section{min-height:770px}
 .detail-section.tinted,.timeline-section,.why-section{background:var(--pale)}
 .detail-image{min-height:560px}
@@ -573,5 +579,5 @@ p{margin-bottom:22px}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-  .reveal{opacity:1;transform:none}
+  .reveal,.reveal.is-visible{opacity:1;transform:none;animation:none!important}
 }

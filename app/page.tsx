@@ -15,9 +15,9 @@ function ProofIcon() {
   </svg>;
 }
 
-function ServiceCard({ service, layout }: { service: (typeof services)[number]; layout: "compact" | "tall" }) {
+function ServiceCard({ service, layout, direction }: { service: (typeof services)[number]; layout: "compact" | "tall"; direction: "left" | "right" }) {
   const displayTitle = service.slug === "moh-acc-kainga-ora" ? "MOH/ACC/ Kāinga Ora" : service.title.toUpperCase();
-  return <Reveal className={`home-service-card home-service-${layout} home-service-${service.slug}`}>
+  return <Reveal className={`home-service-card home-service-${layout} home-service-${service.slug}`} direction={direction}>
     <div className="home-service-copy">
       <h3>{displayTitle}</h3>
       <p>{service.intro}</p>
@@ -43,13 +43,13 @@ export default function Home() {
         </div>
         <Link className="button outline-blue" href="/about-us">ABOUT</Link>
       </Reveal>
-      <Reveal className="about-home-image" delay={120}><Image src="/assets/live/ChatGPT-Image-Jun-24-2026-06_33_46-PM.webp" alt="Mitchell Construction team working on scaffolding" fill sizes="(max-width:820px) 100vw, 50vw" /></Reveal>
+      <Reveal className="about-home-image" direction="right" delay={120}><Image src="/assets/live/ChatGPT-Image-Jun-24-2026-06_33_46-PM.webp" alt="Mitchell Construction team working on scaffolding" fill sizes="(max-width:820px) 100vw, 50vw" /></Reveal>
     </div></section>
     <section className="services-section"><div className="container services-home-inner">
       <p className="eyebrow">OUR SERVICES</p><h2>WHAT WE DELIVER</h2>
       <div className="home-services-layout">
-        <div className="home-services-column"><ServiceCard service={projectManagement} layout="compact" /><ServiceCard service={moh} layout="compact" /><ServiceCard service={education} layout="tall" /></div>
-        <div className="home-services-column"><ServiceCard service={commercial} layout="tall" /><ServiceCard service={modular} layout="tall" /></div>
+        <div className="home-services-column"><ServiceCard service={projectManagement} layout="compact" direction="left" /><ServiceCard service={moh} layout="compact" direction="left" /><ServiceCard service={education} layout="tall" direction="left" /></div>
+        <div className="home-services-column"><ServiceCard service={commercial} layout="tall" direction="right" /><ServiceCard service={modular} layout="tall" direction="right" /></div>
       </div>
     </div></section>
     <CertificationStrip />

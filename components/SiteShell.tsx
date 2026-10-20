@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SiteHeader } from "./SiteHeader";
+import { Reveal } from "./Reveal";
 import { contactItems } from "@/lib/site-data";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
@@ -50,10 +51,9 @@ export function ContactBand() {
   return (
     <section className="contact-band">
       <div className="container contact-band-inner">
-        <p className="eyebrow">CONTACT</p>
-        <h2>GET IN TOUCH WITH OUR TEAM</h2>
+        <Reveal><p className="eyebrow">CONTACT</p><h2>GET IN TOUCH WITH OUR TEAM</h2></Reveal>
         <div className="contact-grid">
-          {contactItems.map(([label, value], index) => <div className="contact-item" key={label}>{index === 3 ? <span className="contact-clock" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19"/><circle cx="20" cy="20" r="10"/><path d="M20 13v8l5 3"/></svg></span> : <Image src={icons[index]} alt="" width={40} height={40} />}<h3>{label}</h3>{label === "EMAIL" ? <a href="mailto:office@mitchellconstruction.co.nz">{value}</a> : label === "PHONE" ? <a href="tel:+6478471204">{value}</a> : label === "HOURS" ? <p>Monday to Friday<br />7AM-5PM</p> : <p>{value}</p>}</div>)}
+          {contactItems.map(([label, value], index) => <Reveal className="contact-item" key={label} delay={index*55}>{index === 3 ? <span className="contact-clock" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19"/><circle cx="20" cy="20" r="10"/><path d="M20 13v8l5 3"/></svg></span> : <Image src={icons[index]} alt="" width={40} height={40} />}<h3>{label}</h3>{label === "EMAIL" ? <a href="mailto:office@mitchellconstruction.co.nz">{value}</a> : label === "PHONE" ? <a href="tel:+6478471204">{value}</a> : label === "HOURS" ? <p>Monday to Friday<br />7AM-5PM</p> : <p>{value}</p>}</Reveal>)}
         </div>
       </div>
       <div className="container contact-map"><Image src="/assets/figma/contact-imgRectangle12.png" alt="Mitchell Construction service area across the North Island" fill sizes="(max-width: 820px) 100vw, 1480px" /></div>
