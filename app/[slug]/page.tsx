@@ -47,7 +47,7 @@ export default async function DynamicPage({ params }: PageProps) {
 
 function ServicePage({ service }: { service: (typeof services)[number] }) {
   const heroVideo = serviceHeroVideos[service.slug];
-  return <SiteShell><main><Hero title={service.heroTitle} description={service.intro} image={service.hero} video={heroVideo} /><CertificationStrip />
+  return <SiteShell><main><Hero title={service.heroTitle} description={service.intro} image={service.hero} video={heroVideo} certifications />
     <div className="detail-sections">{service.sections.map((section,index) => <section className={`section detail-section ${index%2 ? "tinted" : ""}`} key={section.title}><div className={`container split-grid ${index%2 ? "reverse" : ""}`}>
       <Reveal className="content-column" direction={index%2 ? "right" : "left"}><p className="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2>{section.body.split("\n\n").map((part) => <p key={part}>{part}</p>)}</Reveal>
       <Reveal className="detail-image" direction={index%2 ? "left" : "right"} delay={100}><Image src={section.image} alt="" fill sizes="(max-width:800px) 100vw, 50vw" /></Reveal>

@@ -10,11 +10,25 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   return <><SiteHeader />{children}<SiteFooter /></>;
 }
 
-export function Hero({ title, description, image, video, primary = "SERVICES", primaryHref = "/services", secondary = "CONTACT", secondaryHref = "/contact-us", home = false, outlinedActions = false, showActionArrows = true }: {
-  title: string; description: string; image: string; video?: string; primary?: string; primaryHref?: string; secondary?: string; secondaryHref?: string; home?: boolean; outlinedActions?: boolean; showActionArrows?: boolean;
+const certificationLogos = [
+  ["Rectangle-4.png", "Tōtika"],
+  ["Rectangle-4-1.png", "SHE Pre-Qualification"],
+  ["Rectangle-5.png", "Site Safe"],
+  ["Rectangle-6.png", "Registered Master Builders"],
+  ["Rectangle-7.png", "MATES in Construction"],
+  ["Untitled-design-30-1.png", "Licensed Building Practitioner"],
+  ["Untitled-design-30-1-1.png", "Amotai supplier"],
+];
+
+function HeroCertificationBar() {
+  return <div className="hero-certifications" aria-label="Accreditations">{certificationLogos.map(([logo, alt]) => <div className="hero-certification-logo" key={logo}><Image src={`/assets/live/${logo}`} alt={alt} fill sizes="(max-width: 820px) 25vw, 200px" /></div>)}</div>;
+}
+
+export function Hero({ title, description, image, video, primary = "SERVICES", primaryHref = "/services", secondary = "CONTACT", secondaryHref = "/contact-us", home = false, outlinedActions = false, showActionArrows = true, certifications = false }: {
+  title: string; description: string; image: string; video?: string; primary?: string; primaryHref?: string; secondary?: string; secondaryHref?: string; home?: boolean; outlinedActions?: boolean; showActionArrows?: boolean; certifications?: boolean;
 }) {
   return (
-    <section className={`hero ${home ? "home-hero" : ""}`}>
+    <section className={`hero ${home ? "home-hero" : ""} ${certifications ? "hero-with-certifications" : ""}`}>
       {video ? <video className="hero-image hero-video" autoPlay muted loop playsInline preload="metadata" poster={image} aria-hidden="true">
         <source src={video} type="video/mp4" />
       </video> : <Image src={image} alt="" fill priority sizes="100vw" className="hero-image" />}
@@ -27,21 +41,13 @@ export function Hero({ title, description, image, video, primary = "SERVICES", p
           <Link className="button button-ghost" href={secondaryHref}>{secondary}{showActionArrows && <ArrowIcon />}</Link>
         </div>
       </div>
+      {certifications && <HeroCertificationBar />}
     </section>
   );
 }
 
 export function CertificationStrip() {
-  const logos = [
-    ["Rectangle-4.png", "Tōtika"],
-    ["Rectangle-4-1.png", "SHE Pre-Qualification"],
-    ["Rectangle-5.png", "Site Safe"],
-    ["Rectangle-6.png", "Registered Master Builders"],
-    ["Rectangle-7.png", "MATES in Construction"],
-    ["Untitled-design-30-1.png", "Licensed Building Practitioner"],
-    ["Untitled-design-30-1-1.png", "Amotai supplier"],
-  ];
-  return <section className="cert-strip" aria-label="Accreditations"><div className="container cert-inner"><p className="eyebrow">CERTIFICATIONS</p><h2>CERTIFIED TO DELIVER</h2><div className="cert-logos">{logos.map(([logo, alt]) => <div className="cert-logo" key={logo}><Image src={`/assets/live/${logo}`} alt={alt} fill sizes="140px" /></div>)}</div></div></section>;
+  return <section className="cert-strip" aria-label="Accreditations"><div className="container cert-inner"><p className="eyebrow">CERTIFICATIONS</p><h2>CERTIFIED TO DELIVER</h2><div className="cert-logos">{certificationLogos.map(([logo, alt]) => <div className="cert-logo" key={logo}><Image src={`/assets/live/${logo}`} alt={alt} fill sizes="140px" /></div>)}</div></div></section>;
 }
 
 export function ContactBand({ showMap = true }: { showMap?: boolean } = {}) {
