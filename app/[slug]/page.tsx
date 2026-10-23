@@ -53,7 +53,7 @@ function ServicePage({ service }: { service: (typeof services)[number] }) {
       const reverse = section.imagePosition ? section.imagePosition === "left" : index % 2 === 1;
       return <section className={`section detail-section ${index === service.sections.length - 1 ? "tinted" : ""}`} key={section.title}><div className={`container split-grid ${reverse ? "reverse" : ""}`}>
         <Reveal className="content-column" direction={reverse ? "right" : "left"}>{section.eyebrow && <p className="eyebrow">{section.eyebrow}</p>}<h2>{section.title}</h2>{section.body.split("\n\n").map((part) => <p key={part}>{part}</p>)}{section.bullets && <ul className="detail-bullets">{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul>}{section.closing && <p>{section.closing}</p>}</Reveal>
-        <Reveal className="detail-image" direction={reverse ? "left" : "right"} delay={100}><Image src={section.image} alt="" fill sizes="(max-width:800px) 100vw, 50vw" /></Reveal>
+        <Reveal className="detail-image" direction={reverse ? "left" : "right"} delay={100}>{section.video ? <video className="detail-section-video" autoPlay muted loop playsInline preload="metadata" poster={section.image} aria-hidden="true"><source src={section.video} /></video> : <Image src={section.image} alt="" fill sizes="(max-width:800px) 100vw, 50vw" />}</Reveal>
       </div></section>;
     })}</div><WhyUs title={service.whyTitle} /><ContactBand showMap={false} />
   </main></SiteShell>;

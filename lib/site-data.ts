@@ -12,6 +12,7 @@ export type ContentSection = {
   bullets?: string[];
   closing?: string;
   image: string;
+  video?: string;
   imagePosition?: "left" | "right";
 };
 
@@ -167,33 +168,34 @@ export const services: Service[] = [
   {
     slug: "modular-building",
     title: "Modular Building",
-    heroTitle: "modular Building",
+    heroTitle: "MODULAR BUILDING",
     intro: "Specialist site works and installation support for modular education projects across New Zealand.",
     cardIntro: "We provide specialist site works and installation support for modular education projects across New Zealand. Our team manages site preparation, foundations, services, logistics, cranage support, and modular unit installation, with a focus on safe, efficient delivery in live school environments.",
     hero: "/assets/figma/modular-imgPlaceholderImage.png",
-    whyTitle: "Built For Seamless Modular Delivery",
+    whyTitle: "BUILT FOR SEAMLESS MODULAR DELIVERY",
     sections: [
       {
         eyebrow: "MODULAR DELIVERY",
-        title: "From Factory-Built Units To Finished Learning Spaces",
+        title: "FROM FACTORY-BUILT UNITS TO FINISHED LEARNING SPACES",
         body: "Mitchell Construction Limited delivers specialist site works and installation services for modular building projects, with a strong focus on education environments. Working alongside modular fabricators, consultants, and school stakeholders, the team manages the critical on-site works needed to take modular units from delivery through to safe, practical, ready-to-use spaces.\n\nOur role focuses on the construction work that happens on site, including preparation, foundations, services, access planning, logistics, cranage support, accurate set-out, landing, installation, and handover support.",
-        image: "/assets/live/66b078af1169282eecc3e07abe73dfeafb3684ed-1536x1150.jpg",
+        image: "/assets/video/modular-section-installation-poster.jpg",
+        video: "/assets/video/modular-section-installation.m4v",
       },
       {
-        eyebrow: "",
-        title: "Safe, Reliable On-Site Delivery",
-        body: "Many modular building projects are delivered while schools remain open and operational. Mitchell Construction brings extensive experience working in live education settings, where safety, communication, and disruption control are essential.\n\nOur approach includes:",
-        bullets: ["Separating work zones from active school areas", "Managing safe access for students, staff, and visitors", "Coordinating deliveries around school operations", "Planning cranage and installation works carefully", "Maintaining strong health and safety standards", "Reducing disruption to day-to-day learning"],
-        closing: "From early site readiness through to final installation, their team provides dependable site support with practical construction knowledge, strong coordination, and a solutions-focused approach. This helps ensure each project is completed safely, efficiently, and to a high standard.",
-        image: "/assets/figma/modular-imgPlaceholderImage1.png",
-      },
-      {
-        eyebrow: "",
-        title: "Built For Modular Education Projects",
+        eyebrow: "MODULAR DELIVERY",
+        title: "BUILT FOR MODULAR EDUCATION PROJECTS",
         body: "Modular projects require careful coordination between off-site fabrication and on-site construction. Mitchell Construction understands the importance of having the site ready before units arrive, ensuring each stage is properly planned so installation can happen safely and efficiently.\n\nOur team can manage key site requirements, including:",
         bullets: ["Site preparation and enabling works", "Foundations and structural support", "Service coordination and connections", "Access and logistics planning", "Cranage support and installation coordination", "Accurate setting out and unit placement", "Final positioning and handover support"],
         closing: "This helps create a smoother transition from factory-built units to completed learning environments.",
-        image: "/assets/figma/services-imgHeader02.png",
+        image: "/assets/figma/modular-imgPlaceholderImage1.png",
+      },
+      {
+        eyebrow: "MODULAR DELIVERY",
+        title: "SAFE, RELIABLE ON-SITE DELIVERY",
+        body: "Many modular building projects are delivered while schools remain open and operational. Mitchell Construction brings extensive experience working in live education settings, where safety, communication, and disruption control are essential.\n\nOur approach includes:",
+        bullets: ["Separating work zones from active school areas", "Managing safe access for students, staff, and visitors", "Coordinating deliveries around school operations", "Planning cranage and installation works carefully", "Maintaining strong health and safety standards", "Reducing disruption to day-to-day learning"],
+        closing: "From early site readiness through to final installation, their team provides dependable site support with practical construction knowledge, strong coordination, and a solutions-focused approach. This helps ensure each project is completed safely, efficiently, and to a high standard.",
+        image: "/assets/figma/modular-imgPlaceholderImage.png",
       },
     ],
   },
