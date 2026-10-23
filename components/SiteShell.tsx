@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SiteHeader } from "./SiteHeader";
 import { Reveal } from "./Reveal";
 import { ArrowIcon } from "./InteractionIcons";
+import { InteractiveServiceMap } from "./InteractiveServiceMap";
 import { contactItems } from "@/lib/site-data";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
@@ -57,7 +58,7 @@ export function ContactBand() {
           {contactItems.map(([label, value], index) => <Reveal className="contact-item" key={label} delay={index*55}>{index === 3 ? <span className="contact-clock" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19"/><circle cx="20" cy="20" r="10"/><path d="M20 13v8l5 3"/></svg></span> : <Image src={icons[index]} alt="" width={40} height={40} />}<h3>{label}</h3>{label === "EMAIL" ? <a href="mailto:office@mitchellconstruction.co.nz">{value}</a> : label === "PHONE" ? <a href="tel:+6478471204">{value}</a> : label === "HOURS" ? <p>Monday to Friday<br />7AM-5PM</p> : <p>{value}</p>}</Reveal>)}
         </div>
       </div>
-      <div className="container contact-map"><Image src="/assets/figma/contact-imgRectangle12.png" alt="Mitchell Construction service area across the North Island" fill sizes="(max-width: 820px) 100vw, 1480px" /></div>
+      <div className="container contact-map"><InteractiveServiceMap /></div>
     </section>
   );
 }

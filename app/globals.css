@@ -371,11 +371,15 @@ p{margin-bottom:22px}
 
 .featured-section{min-height:1028px;background:#fff}
 .featured-inner{height:100%;padding:33px 0}
-.featured-inner>.eyebrow{margin:0 0 16px;color:#111}
-.featured-inner>h2{margin:0 0 24px;font-size:56px;line-height:1.2}
-.featured-inner>.section-intro{max-width:none;margin:0;font-size:18px;line-height:1.5}
+.featured-intro>.eyebrow{margin:0 0 16px;color:#111}
+.featured-intro>h2{margin:0 0 24px;font-size:56px;line-height:1.2}
+.featured-intro>.section-intro{max-width:none;margin:0;font-size:18px;line-height:1.5}
+.featured-motion{overflow:visible}
 .featured-carousel{position:relative;margin-top:30px}
-.featured-track{display:grid;gap:20px}
+.featured-viewport{overflow:hidden}
+.featured-track{display:flex;gap:20px;will-change:transform;transition:transform .5s ease,opacity .2s ease}
+.featured-track.no-transition{transition:none}
+.featured-slide{min-width:0;flex-grow:0;flex-shrink:0;padding-bottom:10px}
 .featured-card{width:calc(100% - 10px);min-height:659px;margin-left:10px;border:0;border-radius:30px 30px 0;box-shadow:-10px 10px 0 rgba(26,65,129,.63);overflow:hidden;background:#fff}
 .featured-card-image{position:relative;height:363px}
 .featured-card-image img{object-fit:cover}
@@ -407,7 +411,13 @@ p{margin-bottom:22px}
 .contact-item p,.contact-item a{display:block;max-width:100%;margin:0;color:#000;font-size:12.8px;font-weight:300;line-height:1.2;overflow-wrap:anywhere}
 .contact-item a{text-decoration:underline}
 .contact-map{position:relative;height:592px;border-radius:30px 30px 0 30px;overflow:hidden;background:#fff}
-.contact-map img{object-fit:contain}
+.interactive-service-map{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.interactive-map-art{position:relative;width:100%;aspect-ratio:2170/725}
+.interactive-map-art>img{z-index:0;object-fit:contain}
+.map-region{position:absolute;padding:0;border:0;background:transparent;cursor:crosshair;transition:background .22s ease,filter .22s ease}
+.map-region:hover,.map-region:focus-visible{background:transparent;outline:none}
+.map-region-tooltip{position:absolute;z-index:20;max-width:220px;padding:9px 14px;border-radius:18px 18px 0;background:var(--blue);color:#fff;font-size:15px;font-weight:500;line-height:1.2;white-space:nowrap;pointer-events:none;opacity:0;transform:translate(-50%,calc(-100% - 10px));transition:opacity .18s ease,transform .18s ease}
+.map-region-tooltip.is-visible{opacity:1;transform:translate(-50%,calc(-100% - 15px))}
 
 .site-footer{min-height:287px;padding:62px 0 24px;font-family:Inter,Arial,sans-serif}
 .footer-top{padding:0 0 40px}
@@ -492,7 +502,7 @@ p{margin-bottom:22px}
   .about-home-copy .about-lead{font-size:16px}
   .home-proof-grid{grid-template-columns:1fr;gap:30px}
   .about-home-image{height:430px;margin-top:0;border-radius:58px 58px 0 58px}
-  .services-home-inner>h2,.cert-inner>h2,.featured-inner>h2,.contact-band h2{font-size:38px}
+  .services-home-inner>h2,.cert-inner>h2,.featured-intro>h2,.contact-band h2{font-size:38px}
   .home-services-layout{grid-template-columns:1fr;gap:28px}
   .home-services-column{gap:28px}
   .home-service-compact,.home-service-tall{height:auto;grid-template-columns:1fr;grid-template-rows:auto 310px}
@@ -547,9 +557,9 @@ p{margin-bottom:22px}
   .cert-logo img{padding:16px}
   .cert-logo:last-child img{padding:24px 98.75px}
   .featured-section{padding:64px 0}
-  .featured-inner>.eyebrow{margin-bottom:12px}
-  .featured-inner>h2{margin-bottom:20px;font-size:36px;line-height:1.2}
-  .featured-inner>.section-intro{font-size:16px;line-height:24px}
+  .featured-intro>.eyebrow{margin-bottom:12px}
+  .featured-intro>h2{margin-bottom:20px;font-size:36px;line-height:1.2}
+  .featured-intro>.section-intro{font-size:16px;line-height:24px}
   .featured-carousel{margin-top:46px}
   .featured-card{min-height:496px}
   .featured-card-image{height:200px}
@@ -566,6 +576,7 @@ p{margin-bottom:22px}
   .contact-item h3{margin:0 0 12px;font-size:28px;line-height:1.2}
   .contact-item p,.contact-item a{max-width:337.5px;margin:0 auto;font-size:16px;line-height:1.2;text-align:center}
   .contact-map{width:90%;height:310px;margin:33px auto}
+  .interactive-map-art{width:170%;flex:0 0 170%}
   .site-footer{min-height:645px;padding:48px 0}
   .footer-top{gap:20px;padding:0 0 20px}
   .footer-top img{width:190px;height:60px;object-fit:contain}
