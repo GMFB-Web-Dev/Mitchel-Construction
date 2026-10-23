@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BadgeCheck, ClockArrowUp, Handshake, HardHat, Network } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { AboutTimeline } from "@/components/AboutTimeline";
-import { ValueIcon } from "@/components/ValueIcon";
 import { PublicationCarousel } from "@/components/PublicationCarousel";
 import { Reveal } from "@/components/Reveal";
 import { ArrowIcon } from "@/components/InteractionIcons";
@@ -103,16 +103,16 @@ const widerTeam = [
 
 function AboutPage() {
   const values = [
-    ["quality", "Quality Workmanship", "We take pride in delivering work to a high standard, with careful attention to detail across every stage of the project."],
-    ["delivery", "Reliable Delivery", "We focus on clear planning, strong coordination, and dependable project management to keep work moving smoothly."],
-    ["safety", "Safe Site Management", "Health and safety is built into how we work, helping protect our team, subcontractors, clients, and the wider public."],
-    ["relationships", "Strong Relationships", "We value open communication and long-term relationships with clients, consultants, subcontractors, and local communities."],
-    ["experience", "Practical Experience", "Decades of hands-on construction knowledge guide the way we solve problems, manage challenges, and deliver successful outcomes."],
+    [BadgeCheck, "Quality Workmanship", "We take pride in delivering work to a high standard, with careful attention to detail across every stage of the project."],
+    [ClockArrowUp, "Reliable Delivery", "We focus on clear planning, strong coordination, and dependable project management to keep work moving smoothly."],
+    [HardHat, "Safe Site Management", "Health and safety is built into how we work, helping protect our team, subcontractors, clients, and the wider public."],
+    [Handshake, "Strong Relationships", "We value open communication and long-term relationships with clients, consultants, subcontractors, and local communities."],
+    [Network, "Practical Experience", "Decades of hands-on construction knowledge guide the way we solve problems, manage challenges, and deliver successful outcomes."],
   ] as const;
   return <SiteShell><main><Hero title="A Trusted Waikato Building Team Since 1987" description="Trusted Waikato construction specialists delivering commercial, education, and specialist building projects across Hamilton, Auckland, Bay of Plenty, Taupō, Hawke’s Bay, Napier, New Plymouth, and wider regions." image="/assets/figma/about-imgHeader02.png" outlinedActions showActionArrows={false} />
     <section className="section"><div className="container split-grid"><Reveal className="content-column"><p className="eyebrow">ABOUT US</p><h2>Our History, Our Team, Our Legacy</h2><p>Founded by Colin Mitchell in 1987, Mitchell Construction has grown from a local Waikato building team into a trusted commercial construction company. Today, the company continues to be led by experienced people who understand the business, the industry, and the importance of delivering quality work with strong relationships behind it.</p></Reveal><Reveal className="detail-image" direction="right"><Image src="/assets/figma/about-imgPlaceholderImage1.png" alt="Mitchell Construction team training session" fill sizes="50vw" /></Reveal></div></section>
     <section className="section timeline-section"><div className="container"><h2>FROM 1987 TO TODAY</h2><p className="section-intro">Mitchell Construction’s story is built on decades of hands-on experience, strong family leadership, and long-standing relationships across the Waikato. From its beginnings in 1987 to the company it is today, the business has continued to grow while staying focused on quality workmanship, reliable delivery, and practical construction knowledge.</p><AboutTimeline /></div></section>
-    <section className="section values-section"><div className="container values-panel"><p className="eyebrow">VALUES</p><h2>BUILT ON THE RIGHT FOUNDATIONS</h2><div className="values-grid">{values.map(([type,title,copy]) => <article className="value-card" key={title}><ValueIcon type={type} /><h3>{title}</h3><p>{copy}</p></article>)}</div><Link className="button outline-blue values-contact" href="/contact-us">CONTACT US</Link></div></section>
+    <section className="section values-section"><div className="container values-panel"><p className="eyebrow">VALUES</p><h2>BUILT ON THE RIGHT FOUNDATIONS</h2><div className="values-grid">{values.map(([Icon,title,copy]) => <article className="value-card" key={title}><Icon className="value-icon" aria-hidden="true" /><h3>{title}</h3><p>{copy}</p></article>)}</div><Link className="button outline-blue values-contact" href="/contact-us">CONTACT US</Link></div></section>
     <section className="section publication-section"><div className="container split-grid publication-layout"><Reveal><PublicationCarousel /></Reveal><Reveal className="content-column" direction="right"><p className="eyebrow">FEATURED IN WAIKATO TIMES | BUSINESS NORTH | BUSINESS CENTRAL</p><h2>FEATURED IN INDUSTRY PUBLICATIONS</h2><p>Over the years, we have been featured in respected regional business and construction publications, sharing the story behind Mitchell Construction, our family-led approach, and the work we deliver across education, commercial, modular, seismic strengthening, and accessibility modification projects.</p><p>These features have highlighted our long-standing presence across the Waikato and Bay of Plenty, including projects such as Hillcrest Normal School, St John’s College, Whatawhata School, and St John’s Waihi. They also reflect our history, founded by Colin Mitchell in 1987, and the continued involvement of the wider Mitchell family and long-serving team members.</p></Reveal></div></section>
     <section className="section team-section"><div className="container"><p className="eyebrow">OUR TEAM</p><h2>Meet The Mitchell Construction Team</h2><div className="team-grid">{team.map(([name,role,image,copy],index) => <Reveal className="team-card" key={name} direction={index%2 ? "right" : "left"}><div className="team-image"><Image src={image} alt={name} fill sizes="(max-width:800px) 100vw, 50vw" /></div><h3>{name}</h3><b>{role}</b><p>{copy}</p></Reveal>)}</div><div className="wider-team">{widerTeam.map(([name,role,image],index) => <Reveal className="wider-team-card" key={name} direction={index%2 ? "right" : "left"}><Image src={image} alt={name} fill sizes="(max-width:620px) 100vw, 33vw" /><div><h3>{name}</h3><p>{role}</p></div></Reveal>)}</div></div></section>
     <ContactBand />

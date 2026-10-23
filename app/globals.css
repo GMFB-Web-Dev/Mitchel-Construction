@@ -193,7 +193,7 @@ p{margin-bottom:22px}
 .value-card{min-width:0;padding:0 14px 8px;border-right:1px solid rgba(26,65,129,.7);text-align:center}
 .value-card:first-child{padding-left:0}
 .value-card:last-child{padding-right:0;border-right:0}
-.value-icon{width:84px;height:84px;margin:0 auto 27px;fill:none;stroke:var(--blue);stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round}
+.value-icon{width:84px;height:84px;margin:0 auto 27px;color:var(--blue);stroke-width:1.6}
 .value-card h3{margin:0 0 17px;font-size:18px;font-weight:500;text-transform:uppercase}
 .value-card p{margin:0;font-size:16px;line-height:1.5}
 .values-contact{margin-top:16px}
