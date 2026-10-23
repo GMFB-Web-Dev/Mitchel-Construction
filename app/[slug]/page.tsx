@@ -51,7 +51,7 @@ function ServicePage({ service }: { service: (typeof services)[number] }) {
     <div className="detail-sections">{service.sections.map((section,index) => <section className={`section detail-section ${index%2 ? "tinted" : ""}`} key={section.title}><div className={`container split-grid ${index%2 ? "reverse" : ""}`}>
       <Reveal className="content-column" direction={index%2 ? "right" : "left"}><p className="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2>{section.body.split("\n\n").map((part) => <p key={part}>{part}</p>)}</Reveal>
       <Reveal className="detail-image" direction={index%2 ? "left" : "right"} delay={100}><Image src={section.image} alt="" fill sizes="(max-width:800px) 100vw, 50vw" /></Reveal>
-    </div></section>)}</div><WhyUs /><ContactBand />
+    </div></section>)}</div><WhyUs /><ContactBand showMap={false} />
   </main></SiteShell>;
 }
 
@@ -124,7 +124,7 @@ function AboutPage() {
 
 function ProjectsPage() {
   return <SiteShell><main><Hero title="OUR PROJECTS" description="Explore a selection of completed projects showcasing Mitchell Construction’s experience across education, commercial, and specialist building works." image="/assets/figma/projects-imgHeader02.png" /><CertificationStrip />
-    <section className="section projects-page"><div className="container"><p className="eyebrow">OUR PROJECTS</p><h2>Built Work That Shows Real Experience</h2><div className="projects-list">{projects.map((project,index) => <article id={project.id} key={project.id} className={`project-row ${index%2 ? "reverse" : ""}`}><Reveal className="project-row-image" direction={index%2 ? "right" : "left"}><Image src={project.image} alt={project.title} fill sizes="(max-width:800px) 100vw, 50vw" /></Reveal><Reveal className="project-row-copy" direction={index%2 ? "left" : "right"}><h3>{project.title}</h3><p>{project.text}</p></Reveal></article>)}</div></div></section><ContactBand />
+    <section className="section projects-page"><div className="container"><p className="eyebrow">OUR PROJECTS</p><h2>Built Work That Shows Real Experience</h2><div className="projects-list">{projects.map((project,index) => <article id={project.id} key={project.id} className={`project-row ${index%2 ? "reverse" : ""}`}><Reveal className="project-row-image" direction={index%2 ? "right" : "left"}><Image src={project.image} alt={project.title} fill sizes="(max-width:800px) 100vw, 50vw" /></Reveal><Reveal className="project-row-copy" direction={index%2 ? "left" : "right"}><h3>{project.title}</h3><p>{project.text}</p></Reveal></article>)}</div></div></section><ContactBand showMap={false} />
   </main></SiteShell>;
 }
 
