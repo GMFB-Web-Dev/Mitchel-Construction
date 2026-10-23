@@ -12,6 +12,7 @@ export type ContentSection = {
   bullets?: string[];
   closing?: string;
   image: string;
+  imagePosition?: "left" | "right";
 };
 
 export type Service = {
@@ -99,35 +100,36 @@ export const services: Service[] = [
     intro: "Supporting safer, more independent living through carefully planned home accessibility modifications.",
     cardIntro: "Our carefully planned housing modifications help disabled people live more safely and independently, with work completed in coordination with health organisations.",
     hero: "/assets/figma/moh-imgPlaceholderImage.png",
-    whyTitle: "Experienced, Respectful Delivery",
+    whyTitle: "EXPERIENCED, RESPECTFUL DELIVERY",
     sections: [
       {
         eyebrow: "SAFER, MORE ACCESSIBLE HOMES",
-        title: "Modifications That Support Independent Living",
+        title: "MODIFICATIONS THAT SUPPORT INDEPENDENT LIVING",
         body: "Mitchell Construction delivers carefully planned Ministry of Health and ACC housing modifications across Waikato, Hamilton, Auckland, Bay of Plenty, Taupō, Hawke’s Bay, Napier, New Plymouth, and further afield. These projects are designed to help people live more safely, comfortably, and independently in their own homes, with work completed carefully around the needs of each person using the space.\n\nAccessibility projects often require thoughtful planning, clear communication, safe site management, and a strong understanding of how small changes can make a major difference to everyday living. Mitchell Construction works closely with health organisations, consultants, clients, families, and support teams to ensure each modification is practical, respectful, and completed to a high standard.",
-        image: "/assets/live/attachment-3.jpeg",
+        image: "/assets/figma/moh-imgPlaceholderImage.png",
       },
       {
-        eyebrow: "KĀINGA ORA",
-        title: "Building Better Homes and Accessible Living Spaces",
+        eyebrow: "SAFER, MORE ACCESSIBLE HOMES",
+        title: "ACCESSIBILITY WORK WITH CARE",
+        body: "MOH and ACC modification projects are often completed in homes that remain occupied during the works. Mitchell Construction takes a respectful and organised approach to reduce disruption and maintain a safe environment for everyone involved.\n\nTheir team carefully manages each stage of the project, including:",
+        bullets: ["Safe access around the home during construction", "Clear communication with residents and support people", "Careful planning around daily routines", "Coordination with health providers and project consultants", "Clean, tidy, and well-managed work areas", "Practical solutions that improve safety and usability"],
+        closing: "This approach helps ensure each modification is completed with care, while keeping the client’s comfort, dignity, and independence at the centre of the project.",
+        image: "/assets/figma/moh-imgPlaceholderImage4.png",
+      },
+      {
+        eyebrow: "BUILDING BETTER HOMES AND ACCESSIBLE LIVING SPACES",
+        title: "KĀINGA ORA",
         body: "Mitchell Construction specialises in Kāinga Ora new builds, refurbishment programmes, and retrofit projects, delivering high-quality construction solutions that improve homes and strengthen communities across New Zealand.\n\nAlongside our social housing work, we provide Ministry of Health (MOH) and ACC-funded housing modifications, helping people live safely, comfortably, and independently in their own homes. From access ramps and bathroom alterations to complex accessibility upgrades, our team works closely with occupational therapists, consultants, clients, and support networks to create practical solutions tailored to individual needs.\n\nWhether we're constructing new homes, upgrading existing housing stock, or delivering specialised accessibility modifications, we bring the same commitment to quality workmanship, safety, clear communication, and professional project delivery. Our experience working in occupied homes and community environments allows us to complete projects efficiently while minimising disruption for residents and their families.\n\nAt Mitchell Construction, our goal is simple: to build, improve, and adapt homes that provide lasting value and better outcomes for the people who live in them.",
-        image: "/assets/figma/moh-imgPlaceholderImage2.png",
+        image: "/assets/figma/moh-imgPlaceholderImage1.png",
       },
       {
-        eyebrow: "",
-        title: "Practical Home Modification Solutions",
+        eyebrow: "SAFER, MORE ACCESSIBLE HOMES",
+        title: "PRACTICAL HOME MODIFICATION SOLUTIONS",
         body: "Mitchell Construction can complete a wide range of housing modifications to improve access, mobility, and day-to-day function within the home. Each project is approached with a focus on safety, durability, and ease of use.\n\nTheir modification work can include:",
         bullets: ["Bathroom accessibility upgrades", "Entry access improvements", "Ramp construction and threshold adjustments", "Doorway widening and internal layout changes", "Handrail and support installation", "Wet area upgrades", "Bedroom and living area alterations", "Kitchen and laundry access improvements", "General building works to support safer movement through the home"],
         closing: "From minor adjustments through to more involved structural changes, Mitchell Construction provides the building experience needed to deliver practical outcomes that support independent living.",
         image: "/assets/figma/moh-imgPlaceholderImage3.png",
-      },
-      {
-        eyebrow: "",
-        title: "Accessibility Work With Care",
-        body: "MOH and ACC modification projects are often completed in homes that remain occupied during the works. Mitchell Construction takes a respectful and organised approach to reduce disruption and maintain a safe environment for everyone involved.\n\nTheir team carefully manages each stage of the project, including:",
-        bullets: ["Safe access around the home during construction", "Clear communication with residents and support people", "Careful planning around daily routines", "Coordination with health providers and project consultants", "Clean, tidy, and well-managed work areas", "Practical solutions that improve safety and usability"],
-        closing: "This approach helps ensure each modification is completed with care, while keeping the client’s comfort, dignity, and independence at the centre of the project.",
-        image: "/assets/figma/moh-imgPlaceholderImage3.png",
+        imagePosition: "right",
       },
     ],
   },

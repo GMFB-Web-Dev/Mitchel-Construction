@@ -160,7 +160,7 @@ p{margin-bottom:22px}
 @keyframes reveal-fade-in-right{from{opacity:0;transform:translate3d(100%,0,0)}to{opacity:1;transform:none}}
 @keyframes reveal-fade-in-up{from{opacity:0;transform:translate3d(0,100%,0)}to{opacity:1;transform:none}}
 .detail-sections .detail-section{min-height:770px}
-.detail-section.tinted{background:var(--pale)}
+.detail-section.tinted{border-radius:30px 30px 0 30px;background:var(--pale);overflow:hidden}
 .why-section{background:#fff}
 .timeline-section{background:#fff}
 .detail-image{min-height:560px}

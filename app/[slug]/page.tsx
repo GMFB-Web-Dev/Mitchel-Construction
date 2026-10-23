@@ -49,10 +49,13 @@ export default async function DynamicPage({ params }: PageProps) {
 function ServicePage({ service }: { service: (typeof services)[number] }) {
   const heroVideo = serviceHeroVideos[service.slug];
   return <SiteShell><main><Hero title={service.heroTitle} description={service.intro} image={service.hero} video={heroVideo} certifications outlinedActions showActionArrows={false} />
-    <div className="detail-sections">{service.sections.map((section,index) => <section className={`section detail-section ${index === service.sections.length - 1 ? "tinted" : ""}`} key={section.title}><div className={`container split-grid ${index%2 ? "reverse" : ""}`}>
-      <Reveal className="content-column" direction={index%2 ? "right" : "left"}>{section.eyebrow && <p className="eyebrow">{section.eyebrow}</p>}<h2>{section.title}</h2>{section.body.split("\n\n").map((part) => <p key={part}>{part}</p>)}{section.bullets && <ul className="detail-bullets">{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul>}{section.closing && <p>{section.closing}</p>}</Reveal>
-      <Reveal className="detail-image" direction={index%2 ? "left" : "right"} delay={100}><Image src={section.image} alt="" fill sizes="(max-width:800px) 100vw, 50vw" /></Reveal>
-    </div></section>)}</div><WhyUs title={service.whyTitle} /><ContactBand showMap={false} />
+    <div className="detail-sections">{service.sections.map((section,index) => {
+      const reverse = section.imagePosition ? section.imagePosition === "left" : index % 2 === 1;
+      return <section className={`section detail-section ${index === service.sections.length - 1 ? "tinted" : ""}`} key={section.title}><div className={`container split-grid ${reverse ? "reverse" : ""}`}>
+        <Reveal className="content-column" direction={reverse ? "right" : "left"}>{section.eyebrow && <p className="eyebrow">{section.eyebrow}</p>}<h2>{section.title}</h2>{section.body.split("\n\n").map((part) => <p key={part}>{part}</p>)}{section.bullets && <ul className="detail-bullets">{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul>}{section.closing && <p>{section.closing}</p>}</Reveal>
+        <Reveal className="detail-image" direction={reverse ? "left" : "right"} delay={100}><Image src={section.image} alt="" fill sizes="(max-width:800px) 100vw, 50vw" /></Reveal>
+      </div></section>;
+    })}</div><WhyUs title={service.whyTitle} /><ContactBand showMap={false} />
   </main></SiteShell>;
 }
 
