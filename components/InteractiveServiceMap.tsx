@@ -52,26 +52,28 @@ export function InteractiveServiceMap() {
       if (event.pointerType === "mouse") setActive(null);
     }}>
       <svg className="interactive-map-svg" viewBox="430 0 640 500" role="img" aria-label="North Island service regions">
-        {nzRegionPaths.map((region) => region.label ? <path
-          className={`map-region ${active === region.label ? "is-active" : ""}`}
-          key={region.id}
-          d={region.path}
-          data-region-id={region.id}
-          aria-hidden="true"
-          onPointerEnter={(event) => {
-            setActive(region.label);
-            followPointer(event);
-          }}
-          onPointerDown={(event) => {
-            if (event.pointerType !== "mouse") {
+        <g className="interactive-map-regions" transform="rotate(5 750 250)">
+          {nzRegionPaths.filter((region) => region.label).map((region) => <path
+            className={`map-region ${active === region.label ? "is-active" : ""}`}
+            key={region.id}
+            d={region.path}
+            data-region-id={region.id}
+            aria-hidden="true"
+            onPointerEnter={(event) => {
               setActive(region.label);
               followPointer(event);
-            }
-          }}
-          onPointerLeave={(event) => {
-            if (event.pointerType === "mouse") setActive(null);
-          }}
-        /> : <path className="map-region is-inactive" key={region.id} d={region.path} aria-hidden="true" />)}
+            }}
+            onPointerDown={(event) => {
+              if (event.pointerType !== "mouse") {
+                setActive(region.label);
+                followPointer(event);
+              }
+            }}
+            onPointerLeave={(event) => {
+              if (event.pointerType === "mouse") setActive(null);
+            }}
+          />)}
+        </g>
       </svg>
       <div className="map-region-controls" aria-label="Service regions">
         {nzRegionPaths.filter((region) => region.label).map((region) => <button
