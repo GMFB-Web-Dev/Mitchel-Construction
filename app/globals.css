@@ -312,7 +312,7 @@ p{margin-bottom:22px}
 .home-hero .hero-slides .hero-image{transform:none;transition:opacity .85s ease}
 .home-hero .hero-overlay{background:rgba(5,14,27,.58)}
 .home-hero .hero-content{position:absolute;top:clamp(220px,36.6svh,462px);left:5%;width:90%;height:auto;margin:0;padding:0;display:block}
-.home-hero h1{max-width:none;margin:0 0 24px;color:#fff;font-size:56px;font-weight:500;line-height:1.2;letter-spacing:-.002em}
+.home-hero h1{max-width:none;margin:0 0 24px;color:#fff;font-size:56px;font-weight:500;line-height:1.2;letter-spacing:-.002em;text-align:center}
 .home-hero p{max-width:none;margin:0 0 48px;color:#fff;font-size:18px;font-weight:400;line-height:1.5;letter-spacing:-.002em}
 .home-hero .hero-actions{gap:16px}
 .home-hero .button{min-width:120px;height:50px;padding:12px 20px;border-radius:30px 30px 0;font-family:Inter,Arial,sans-serif;font-size:16px;font-weight:500}
