@@ -10,12 +10,14 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   return <><SiteHeader />{children}<SiteFooter /></>;
 }
 
-export function Hero({ title, description, image, primary = "SERVICES", primaryHref = "/services", secondary = "CONTACT", secondaryHref = "/contact-us", home = false }: {
-  title: string; description: string; image: string; primary?: string; primaryHref?: string; secondary?: string; secondaryHref?: string; home?: boolean;
+export function Hero({ title, description, image, video, primary = "SERVICES", primaryHref = "/services", secondary = "CONTACT", secondaryHref = "/contact-us", home = false }: {
+  title: string; description: string; image: string; video?: string; primary?: string; primaryHref?: string; secondary?: string; secondaryHref?: string; home?: boolean;
 }) {
   return (
     <section className={`hero ${home ? "home-hero" : ""}`}>
-      <Image src={image} alt="" fill priority sizes="100vw" className="hero-image" />
+      {video ? <video className="hero-image hero-video" autoPlay muted loop playsInline preload="metadata" poster={image} aria-hidden="true">
+        <source src={video} type="video/mp4" />
+      </video> : <Image src={image} alt="" fill priority sizes="100vw" className="hero-image" />}
       <div className="hero-overlay" />
       <div className="hero-content container">
         <h1 className="hero-swipe hero-swipe-left">{title}</h1>
