@@ -4,6 +4,7 @@ import { SiteHeader } from "./SiteHeader";
 import { Reveal } from "./Reveal";
 import { ArrowIcon } from "./InteractionIcons";
 import { InteractiveServiceMap } from "./InteractiveServiceMap";
+import { FooterNav } from "./FooterNav";
 import { contactItems } from "@/lib/site-data";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
@@ -76,9 +77,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="container footer-top">
         <Image src="/assets/figma/about-imgRectangle1.png" alt="Mitchell Construction Ltd" width={410} height={56} />
-        <nav aria-label="Footer navigation">
-          <Link href="/">HOME</Link><Link href="/about-us">ABOUT</Link><Link href="/services">SERVICES</Link><Link href="/projects">PROJECTS</Link><Link href="/contact-us">CONTACT</Link>
-        </nav>
+        <FooterNav />
       </div>
       <div className="container footer-bottom">
         <p>© 2021 - 2026 Mitchell Construction Ltd. Unit 1/550 Te Rapa Road, Te Rapa, Hamilton +6478471204. Powered by <a href="https://gmfb.co.nz/">GMFB Ltd.</a> Page: Construction Company Hamilton | Licensed Building Practitioner<br />- Last updated: 30th April, 2026 <Link href="/">Site Map</Link> | <Link href="/">Links to other quality businesses.</Link></p>
