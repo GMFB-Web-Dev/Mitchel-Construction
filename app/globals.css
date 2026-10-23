@@ -216,18 +216,26 @@ p{margin-bottom:22px}
 .publication-dots button{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:#9ba8b8;transition:background .2s ease,transform .2s ease}
 .publication-dots button.active{background:var(--blue)}
 .publication-dots button:hover,.publication-dots button:focus-visible{background:var(--mid);transform:scale(1.25)}
-.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:74px 64px;margin-top:65px}
-.team-image{position:relative;height:560px;margin-bottom:27px;border-radius:62px 62px 0 62px;overflow:hidden;background:#e8edf3}
-.team-image img{object-fit:cover;object-position:center top}
-.team-card h3{margin:0;font-size:26px}
-.team-card b{display:block;margin:5px 0 15px;color:var(--blue);font-weight:400}
-.wider-team{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:82px}
-.wider-team-card{position:relative;height:270px;overflow:hidden;border-radius:28px 28px 0 28px}
-.wider-team-card img{object-fit:cover}
-.wider-team-card:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(4,18,40,.86))}
-.wider-team-card>div{position:absolute;z-index:2;left:22px;right:22px;bottom:16px;color:#fff}
-.wider-team-card h3{margin:0;color:#fff;font-size:20px}
-.wider-team-card p{margin:2px 0 0;font-size:13px}
+.team-section>.container>.eyebrow{color:#111}
+.team-section>.container>h2{max-width:700px;margin-bottom:70px;font-size:52px}
+.team-featured{display:grid;grid-template-columns:330px minmax(0,1fr);gap:24px;align-items:start;margin-bottom:58px}
+.team-featured-image,.team-image{position:relative;border-radius:30px 30px 0 30px;box-shadow:-6px 6px 0 var(--mid);overflow:hidden;background:#e8edf3}
+.team-featured-image{height:350px}
+.team-featured-image img,.team-image img{object-fit:cover;object-position:center top}
+.team-featured-copy{padding:4px 0 0}
+.team-featured-copy h3,.team-card h3{margin:0;color:var(--blue);font-size:18px;font-weight:600;text-transform:uppercase}
+.team-featured-copy b,.team-card b{display:block;margin:2px 0 16px;color:#111;font-size:16px;font-weight:400}
+.team-featured-copy p{margin:0 0 18px;font-size:15px;line-height:1.48}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:68px 52px}
+.team-image{height:320px;margin-bottom:24px}
+.team-card-copy{text-align:center}
+.team-card-copy p{max-width:610px;margin:0 auto 20px;font-size:15px;line-height:1.45}
+.wider-team{display:grid;grid-template-columns:repeat(3,1fr);gap:54px 28px;margin-top:82px}
+.wider-team-card{position:relative;height:245px;overflow:hidden;border-radius:28px 28px 0 28px;box-shadow:-6px 6px 0 var(--mid);background:#e8edf3}
+.wider-team-card img{object-fit:cover;object-position:center top}
+.wider-team-card>div{position:absolute;z-index:2;left:0;bottom:0;min-width:178px;padding:9px 14px 8px;background:var(--blue);color:#fff}
+.wider-team-card h3{margin:0;color:#fff;font-size:13px;font-weight:500;text-transform:uppercase}
+.wider-team-card p{margin:1px 0 0;font-size:11px;line-height:1.25}
 
 .projects-list{margin-top:76px}
 .project-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin:0 0 120px;scroll-margin-top:110px}
@@ -317,7 +325,9 @@ p{margin-bottom:22px}
   .footer-top{flex-direction:column;gap:36px}
   .footer-top nav{flex-wrap:wrap;justify-content:center}
   .footer-bottom{flex-direction:column;gap:24px;text-align:center}
-  .why-grid,.team-grid{grid-template-columns:1fr}
+  .why-grid,.team-grid,.team-featured{grid-template-columns:1fr}
+  .team-featured{gap:30px;margin-bottom:68px}
+  .team-featured-image{height:480px}
   .wider-team{grid-template-columns:1fr 1fr}
   .project-row,.project-row.reverse{grid-template-columns:1fr;margin-bottom:85px}
   .project-row.reverse .project-row-image{order:initial}
@@ -342,7 +352,12 @@ p{margin-bottom:22px}
   .cert-logo{width:88px;height:60px}
   .project-card-image,.project-row-image{height:330px}
   .contact-band h2,.contact-page h2{font-size:34px}
-  .team-image{height:430px}
+  .team-section>.container>h2{margin-bottom:48px;font-size:36px}
+  .team-featured{gap:28px;margin-bottom:58px}
+  .team-featured-image{height:340px}
+  .team-image{height:300px}
+  .team-grid{gap:58px}
+  .team-featured-copy p,.team-card-copy p{font-size:14px;line-height:1.5}
   .wider-team{grid-template-columns:1fr}
   .footer-top img{width:100%;height:auto}
   .footer-top nav{gap:20px}
