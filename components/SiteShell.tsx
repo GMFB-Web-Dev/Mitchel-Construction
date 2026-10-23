@@ -44,7 +44,7 @@ export function CertificationStrip() {
   return <section className="cert-strip" aria-label="Accreditations"><div className="container cert-inner"><p className="eyebrow">CERTIFICATIONS</p><h2>CERTIFIED TO DELIVER</h2><div className="cert-logos">{logos.map(([logo, alt]) => <div className="cert-logo" key={logo}><Image src={`/assets/live/${logo}`} alt={alt} fill sizes="140px" /></div>)}</div></div></section>;
 }
 
-export function ContactBand() {
+export function ContactBand({ showMap = true }: { showMap?: boolean } = {}) {
   const icons = [
     "/assets/figma/contact-imgIconEmailWBackground.svg",
     "/assets/figma/contact-imgIconPhoneWBackground.svg",
@@ -53,14 +53,14 @@ export function ContactBand() {
     "/assets/figma/contact-imgIconPinWBackground.svg",
   ];
   return (
-    <section className="contact-band">
+    <section className={`contact-band ${showMap ? "" : "contact-band-no-map"}`}>
       <div className="container contact-band-inner">
         <Reveal><p className="eyebrow">CONTACT</p><h2>GET IN TOUCH WITH OUR TEAM</h2></Reveal>
         <div className="contact-grid">
           {contactItems.map(([label, value], index) => <Reveal className="contact-item" key={label} delay={index*55}>{index === 3 ? <span className="contact-clock" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19"/><circle cx="20" cy="20" r="10"/><path d="M20 13v8l5 3"/></svg></span> : <Image src={icons[index]} alt="" width={40} height={40} />}<h3>{label}</h3>{label === "EMAIL" ? <a href="mailto:office@mitchellconstruction.co.nz">{value}</a> : label === "PHONE" ? <a href="tel:+6478471204">{value}</a> : label === "HOURS" ? <p>Monday to Friday<br />7AM-5PM</p> : <p>{value}</p>}</Reveal>)}
         </div>
       </div>
-      <div className="container contact-map"><InteractiveServiceMap /></div>
+      {showMap && <div className="container contact-map"><InteractiveServiceMap /></div>}
     </section>
   );
 }
