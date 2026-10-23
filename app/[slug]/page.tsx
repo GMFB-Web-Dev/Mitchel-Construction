@@ -9,7 +9,7 @@ import { AboutTimeline } from "@/components/AboutTimeline";
 import { PublicationCarousel } from "@/components/PublicationCarousel";
 import { Reveal } from "@/components/Reveal";
 import { ArrowIcon } from "@/components/InteractionIcons";
-import { CertificationStrip, ContactBand, Hero, SiteShell } from "@/components/SiteShell";
+import { ContactBand, Hero, SiteShell } from "@/components/SiteShell";
 import { contactItems, projects, services } from "@/lib/site-data";
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -48,32 +48,36 @@ export default async function DynamicPage({ params }: PageProps) {
 function ServicePage({ service }: { service: (typeof services)[number] }) {
   const heroVideo = serviceHeroVideos[service.slug];
   return <SiteShell><main><Hero title={service.heroTitle} description={service.intro} image={service.hero} video={heroVideo} certifications outlinedActions showActionArrows={false} />
-    <div className="detail-sections">{service.sections.map((section,index) => <section className={`section detail-section ${index%2 ? "tinted" : ""}`} key={section.title}><div className={`container split-grid ${index%2 ? "reverse" : ""}`}>
-      <Reveal className="content-column" direction={index%2 ? "right" : "left"}><p className="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2>{section.body.split("\n\n").map((part) => <p key={part}>{part}</p>)}</Reveal>
+    <div className="detail-sections">{service.sections.map((section,index) => <section className={`section detail-section ${index === service.sections.length - 1 ? "tinted" : ""}`} key={section.title}><div className={`container split-grid ${index%2 ? "reverse" : ""}`}>
+      <Reveal className="content-column" direction={index%2 ? "right" : "left"}>{section.eyebrow && <p className="eyebrow">{section.eyebrow}</p>}<h2>{section.title}</h2>{section.body.split("\n\n").map((part) => <p key={part}>{part}</p>)}{section.bullets && <ul className="detail-bullets">{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul>}{section.closing && <p>{section.closing}</p>}</Reveal>
       <Reveal className="detail-image" direction={index%2 ? "left" : "right"} delay={100}><Image src={section.image} alt="" fill sizes="(max-width:800px) 100vw, 50vw" /></Reveal>
-    </div></section>)}</div><WhyUs /><ContactBand showMap={false} />
+    </div></section>)}</div><WhyUs title={service.whyTitle} /><ContactBand showMap={false} />
   </main></SiteShell>;
 }
 
-function WhyUs() {
+function WhyUs({ title }: { title: string }) {
   const items = [
-    ["Proven experience in education and commercial construction", "Mitchell Construction has specialised in education and commercial projects across Hamilton and the wider Waikato since 1987."],
-    ["Established team with practical leadership", "Trade-qualified builders, project managers, estimators, site managers and health and safety leadership support reliable delivery."],
-    ["Strong track record across Waikato projects", "Our completed work includes classrooms, refurbishments, accessibility upgrades, laboratories and major commercial facilities."],
-    ["Commitment to quality, safety and dependable delivery", "Registered Master Builder, Site Safe and Licensed Building Practitioner credentials reinforce a focus on professional delivery."],
+    ["Proven experience in education and commercial construction", "Mitchell Construction has specialised in education and commercial projects across Hamilton and the wider Waikato since 1987, giving them deep sector experience and a clear understanding of the requirements involved in these environments."],
+    ["Established team with practical leadership and project management capability", "Mitchell Construction is backed by an experienced team that includes trade qualified builders, project managers, estimators, site managers, and health and safety leadership. Their team structure supports reliable delivery, coordination of subcontractors, and well-managed projects from start to finish."],
+    ["Strong track record across Waikato projects", "We have delivered a wide range of school and commercial projects throughout the Waikato, with previous work including classroom builds, refurbishments, accessibility upgrades, temporary classroom placement, and redevelopment works for numerous schools and organisations."],
+    ["Commitment to quality, safety, and dependable delivery", "As a Registered Master Builder, Mitchell Construction positions itself around high-quality workmanship, strong customer service, and careful project execution. Their team also holds relevant Site Safe and Licensed Building Practitioner credentials, reinforcing a focus on safety, professionalism, and accountability."],
   ];
-  return <section className="section why-section"><div className="container"><p className="eyebrow">WHY US</p><h2>BUILT ON THE RIGHT FOUNDATIONS</h2><div className="why-grid">{items.map(([title,copy],i) => <Reveal key={title} direction={i%2 ? "right" : "left"} delay={(i%2)*80}><h3>{title}</h3><p>{copy}</p></Reveal>)}</div></div></section>;
+  return <section className="section why-section"><div className="container"><p className="eyebrow">WHY US</p><h2>{title}</h2><div className="why-grid">{items.map(([itemTitle,copy],i) => <Reveal key={itemTitle} direction={i%2 ? "right" : "left"} delay={(i%2)*80}><h3>{itemTitle}</h3><p>{copy}</p></Reveal>)}</div></div></section>;
 }
 
 function ServicesPage() {
-  return <SiteShell><main className="services-page"><Hero title="Complete Construction Services Across Waikato" description="Delivering reliable education, commercial, and specialist construction services across Hamilton and the wider Waikato." image="/assets/figma/services-imgHeader02.png" primary="PROJECTS" primaryHref="/projects" />
-    <section className="section services-deliver"><div className="container"><p className="eyebrow">OUR SERVICES</p><h2>WHAT WE DELIVER</h2><div className="service-showcase">{services.map((service,index) => <Reveal className={`service-showcase-card service-showcase-${service.slug}`} key={service.slug} direction={index%2 ? "right" : "left"} delay={(index%2)*80}><div className="service-showcase-copy"><h3>{service.title.toUpperCase()}</h3><p>{service.intro}</p><Link className="action-link" href={`/${service.slug}`}>LEARN MORE <ArrowIcon /></Link></div><div className="service-showcase-image"><Image src={service.slug === "moh-acc-kainga-ora" ? "/assets/figma/moh-imgPlaceholderImage2.png" : service.sections[0].image} alt="" fill sizes="(max-width:820px) 90vw, 50vw" /></div></Reveal>)}</div></div></section>
+  return <SiteShell><main className="services-page"><Hero title="Complete Construction Services Across Waikato" description="Delivering reliable education, commercial, and specialist construction services across Hamilton and the wider Waikato." image="/assets/figma/services-imgHeader02.png" primary="PROJECTS" primaryHref="/projects" certifications outlinedActions showActionArrows={false} />
+    <section className="section services-deliver"><div className="container"><p className="eyebrow">OUR SERVICES</p><h2>WHAT WE DELIVER</h2><div className="service-showcase">{services.map((service,index) => <Reveal className={`service-showcase-card service-showcase-${service.slug}`} key={service.slug} direction={index%2 ? "right" : "left"} delay={(index%2)*80}><div className="service-showcase-copy"><h3>{service.title.toUpperCase()}</h3><p>{service.cardIntro}</p><Link className="action-link" href={`/${service.slug}`}>LEARN MORE <ArrowIcon /></Link></div><div className="service-showcase-image"><Image src={service.slug === "moh-acc-kainga-ora" ? "/assets/figma/moh-imgPlaceholderImage2.png" : service.sections[0].image} alt="" fill sizes="(max-width:820px) 90vw, 50vw" /></div></Reveal>)}</div></div></section>
     <Featured /><ContactBand showMap={false} />
   </main></SiteShell>;
 }
 
 function Featured() {
-  const featuredProjects = [projects[0], projects[2], projects[1]];
+  const featuredProjects = [
+    { ...projects[0], title: "LIC – Main Reception / Cafeteria / Boardroom building" },
+    projects[1],
+    { ...projects[2], title: "LIC Block A ST Genetics Laboratory – PC2 Laboratory" },
+  ];
   return <section className="section featured-section services-featured"><div className="container"><p className="eyebrow">PORTFOLIO</p><h2>FEATURED PROJECTS</h2><p className="section-intro">A selection of completed projects that showcase Mitchell Construction’s experience, workmanship, and ability to deliver well-managed education, commercial, and specialist building works across the Waikato.</p><div className="project-card-grid">{featuredProjects.map((project) => <article className="project-card" key={project.id}><div className="project-card-image"><Image src={project.image} alt={project.title} fill sizes="(max-width:820px) 90vw, 33vw" /></div><div className="project-card-copy"><h3>{project.title}</h3><p>{project.text}</p><Link className="action-link" href={`/projects#${project.id}`}>VIEW PROJECT <ArrowIcon /></Link></div></article>)}</div></div></section>;
 }
 
@@ -123,8 +127,9 @@ function AboutPage() {
 }
 
 function ProjectsPage() {
-  return <SiteShell><main><Hero title="OUR PROJECTS" description="Explore a selection of completed projects showcasing Mitchell Construction’s experience across education, commercial, and specialist building works." image="/assets/figma/projects-imgHeader02.png" /><CertificationStrip />
-    <section className="section projects-page"><div className="container"><p className="eyebrow">OUR PROJECTS</p><h2>Built Work That Shows Real Experience</h2><div className="projects-list">{projects.map((project,index) => <article id={project.id} key={project.id} className={`project-row ${index%2 ? "reverse" : ""}`}><Reveal className="project-row-image" direction={index%2 ? "right" : "left"}><Image src={project.image} alt={project.title} fill sizes="(max-width:800px) 100vw, 50vw" /></Reveal><Reveal className="project-row-copy" direction={index%2 ? "left" : "right"}><h3>{project.title}</h3><p>{project.text}</p></Reveal></article>)}</div></div></section><ContactBand showMap={false} />
+  return <SiteShell><main><Hero title="OUR PROJECTS" description="Explore a selection of completed projects showcasing Mitchell Construction’s experience across education, commercial, and specialist building works." image="/assets/figma/projects-imgHeader02.png" />
+    <section className="section projects-page"><div className="container"><p className="eyebrow">OUR PROJECTS</p><h2>Built Work That Shows Real Experience</h2></div></section>
+    {[projects.slice(0,4), projects.slice(4,8), projects.slice(8)].map((group,groupIndex) => <section className={`section project-group ${groupIndex === 1 ? "tinted" : ""}`} key={group[0].id}><div className="container projects-list">{group.map((project,index) => { const absoluteIndex = groupIndex * 4 + index; return <article id={project.id} key={project.id} className={`project-row ${absoluteIndex%2 ? "reverse" : ""}`}><Reveal className="project-row-image" direction={absoluteIndex%2 ? "right" : "left"}><Image src={project.image} alt={project.title} fill sizes="(max-width:800px) 100vw, 50vw" /></Reveal><Reveal className="project-row-copy" direction={absoluteIndex%2 ? "left" : "right"}><h3>{project.title}</h3><p>{project.text}</p>{project.details.split("\n\n").map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</Reveal></article>;})}</div></section>)}<ContactBand showMap={false} />
   </main></SiteShell>;
 }
 

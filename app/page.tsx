@@ -21,7 +21,7 @@ function ServiceCard({ service, layout, direction }: { service: (typeof services
   return <Reveal className={`home-service-card home-service-${layout} home-service-${service.slug}`} direction={direction}>
     <div className="home-service-copy">
       <h3>{displayTitle}</h3>
-      <p>{service.intro}</p>
+      <p>{service.cardIntro}</p>
       <Link className="action-link" href={`/${service.slug}`}>LEARN MORE <ArrowIcon /></Link>
     </div>
     <div className="home-service-image">
