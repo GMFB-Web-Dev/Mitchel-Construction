@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ArrowIcon, ChevronIcon } from "./InteractionIcons";
+import { ArrowIcon } from "./InteractionIcons";
 import { Reveal } from "./Reveal";
 
 const featured = [
@@ -104,7 +104,7 @@ export function FeaturedProjectsCarousel() {
       </Reveal>
       <Reveal className="featured-motion" direction="right" delay={100}>
         <div className="featured-carousel">
-          <button className="carousel-arrow carousel-arrow-left" type="button" onClick={() => move(-1)} aria-label="Previous projects"><ChevronIcon direction="left" /></button>
+          <button className="carousel-arrow carousel-arrow-left" type="button" onClick={() => move(-1)} aria-label="Previous projects"><ArrowIcon direction="left" /></button>
           <div className="featured-viewport" ref={viewportRef}>
             <div className={`featured-track ${animate ? "" : "no-transition"}`} style={{ transform: `translate3d(${-trackIndex * step}px,0,0)`, opacity: viewportWidth ? 1 : 0 }} onTransitionEnd={settleLoop}>
               {slides.map(({ project, clone, key }) => <div className="featured-slide" key={key} style={{ flexBasis: slideWidth || `calc(${100 / visible}% - ${(gap * (visible - 1)) / visible}px)` }} aria-hidden={clone || undefined}>
@@ -115,7 +115,7 @@ export function FeaturedProjectsCarousel() {
               </div>)}
             </div>
           </div>
-          <button className="carousel-arrow carousel-arrow-right" type="button" onClick={() => move(1)} aria-label="Next projects"><ChevronIcon direction="right" /></button>
+          <button className="carousel-arrow carousel-arrow-right" type="button" onClick={() => move(1)} aria-label="Next projects"><ArrowIcon direction="right" /></button>
         </div>
       </Reveal>
       <div className="carousel-dots" aria-label="Project slides">{featured.map((project, index) => <button key={project.id} type="button" className={index === active ? "active" : ""} onClick={() => goTo(index)} aria-label={`Show ${project.title}`} />)}</div>

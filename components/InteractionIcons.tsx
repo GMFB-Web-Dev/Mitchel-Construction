@@ -2,10 +2,10 @@ type IconProps = {
   className?: string;
 };
 
-export function ArrowIcon({ className = "" }: IconProps) {
+export function ArrowIcon({ direction = "right", className = "" }: IconProps & { direction?: "left" | "right" }) {
   return (
-    <svg className={`arrow-icon ${className}`} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M5 12h13M13 7l5 5-5 5" />
+    <svg className={`arrow-icon arrow-${direction} ${className}`} viewBox="0 0 22 22" aria-hidden="true" focusable="false">
+      <path d="M5 11h12M11 5l6 6-6 6" />
     </svg>
   );
 }
