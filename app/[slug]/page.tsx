@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BadgeCheck, ClockArrowUp, Handshake, HardHat, Network } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
+import { InteractiveServiceMap } from "@/components/InteractiveServiceMap";
 import { AboutTimeline } from "@/components/AboutTimeline";
 import { PublicationCarousel } from "@/components/PublicationCarousel";
 import { Reveal } from "@/components/Reveal";
@@ -127,8 +128,14 @@ function ProjectsPage() {
 }
 
 function ContactPage() {
-  return <SiteShell><main><Hero title="Start Your Next Project With Mitchell Construction" description="Talk to our Waikato-based team about your next education, commercial, or specialist construction project across Hamilton, Auckland, Bay of Plenty, Taupō, Hawke’s Bay, Napier, New Plymouth, and beyond." image="/assets/figma/contact-imgHeader02.png" primary="SERVICES" secondary="ABOUT US" secondaryHref="/about-us" />
-    <section className="section contact-page"><div className="container"><Reveal><p className="eyebrow">CONTACT</p><h2>GET IN TOUCH WITH OUR TEAM</h2></Reveal><div className="contact-grid">{contactItems.map(([label,value],index) => <Reveal key={label} direction={index%2 ? "right" : "left"} delay={(index%2)*80}><h3>{label}</h3><p>{value}</p></Reveal>)}</div><ContactForm /></div></section>
-    <div className="map-image"><Image src="/assets/figma/contact-imgRectangle12.png" alt="Map showing Mitchell Construction in Te Rapa, Hamilton" fill sizes="100vw" /></div>
+  const icons = [
+    "/assets/figma/contact-imgIconEmailWBackground.svg",
+    "/assets/figma/contact-imgIconPhoneWBackground.svg",
+    "/assets/figma/contact-imgIconPinWBackground.svg",
+    "",
+    "/assets/figma/contact-imgIconPinWBackground.svg",
+  ];
+  return <SiteShell><main><Hero title="Start Your Next Project With Mitchell Construction" description="Talk to our Waikato-based team about your next education, commercial, or specialist construction project across Hamilton, Auckland, Bay of Plenty, Taupō, Hawke’s Bay, Napier, New Plymouth, and beyond." image="/assets/figma/contact-imgHeader02.png" primary="SERVICES" secondary="ABOUT US" secondaryHref="/about-us" outlinedActions showActionArrows={false} />
+    <section className="section contact-page"><div className="container contact-page-details"><Reveal><p className="eyebrow">CONTACT</p><h2>GET IN TOUCH WITH OUR TEAM</h2></Reveal><div className="contact-grid">{contactItems.map(([label,value],index) => <Reveal className="contact-item" key={label} direction={index%2 ? "right" : "left"} delay={(index%2)*80}>{index === 3 ? <span className="contact-clock" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="19"/><circle cx="20" cy="20" r="10"/><path d="M20 13v8l5 3"/></svg></span> : <Image src={icons[index]} alt="" width={56} height={56} />}<h3>{label}</h3>{label === "EMAIL" ? <a href="mailto:office@mitchellconstruction.co.nz">{value}</a> : label === "PHONE" ? <a href="tel:+6478471204">{value}</a> : label === "HOURS" ? <p>Monday to Friday<br />7AM-5PM</p> : <p>{value}</p>}</Reveal>)}</div></div><div className="container contact-page-form"><ContactForm /></div><div className="container contact-page-map"><InteractiveServiceMap /></div></section>
   </main></SiteShell>;
 }

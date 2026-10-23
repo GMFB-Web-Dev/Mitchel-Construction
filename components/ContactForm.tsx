@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { ArrowIcon } from "./InteractionIcons";
 
 export function ContactForm() {
   const [status, setStatus] = useState<{ type: "idle" | "sending" | "success" | "error"; message: string }>({ type: "idle", message: "" });
@@ -40,12 +39,12 @@ export function ContactForm() {
   }
   return (
     <form className="contact-form" onSubmit={submit} noValidate>
-      <label>Name<input name="name" autoComplete="name" placeholder="Name" required /></label>
-      <label>Email<input name="email" type="email" autoComplete="email" placeholder="Enter your email" required /></label>
+      <label className="full">Name<input name="name" autoComplete="name" placeholder="Name" required /></label>
+      <label className="full">Email<input name="email" type="email" autoComplete="email" placeholder="Enter your email" required /></label>
       <label className="full">Message<textarea name="message" placeholder="Type your message here..." rows={6} required /></label>
       <label className="contact-honeypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
       <label className="check full"><input name="terms" type="checkbox" required /> <span>I agree to the terms and conditions</span></label>
-      <button className="button button-white" type="submit" disabled={status.type === "sending"}>{status.type === "sending" ? "SENDING…" : "SUBMIT"} <ArrowIcon /></button>
+      <button className="button outline-blue" type="submit" disabled={status.type === "sending"}>{status.type === "sending" ? "SENDING…" : "SUBMIT"}</button>
       {status.message && <p className={`form-status full ${status.type}`} role={status.type === "error" ? "alert" : "status"}>{status.message}</p>}
     </form>
   );
