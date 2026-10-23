@@ -71,6 +71,9 @@ p{margin-bottom:22px}
 .hero-swipe-left{animation:reveal-fade-in-left 1.25s ease .12s both}
 .hero-swipe-right{animation:reveal-fade-in-right 1.25s ease .28s both}
 .hero-actions{display:flex;gap:16px}
+.hero .hero-actions .button{min-width:132px;height:50px;padding:12px 22px;border:2px solid #fff;border-radius:999px 999px 0 999px;background:transparent;color:#fff;font-size:16px;font-weight:400}
+.hero .hero-actions .button .arrow-icon{display:none}
+.hero .hero-actions .button:hover,.hero .hero-actions .button:focus-visible{border-color:#fff;background:#fff;color:var(--blue)}
 .hero-with-certifications .hero-content{padding-bottom:104px}
 .hero-certifications{position:absolute;z-index:4;left:50%;bottom:16px;width:min(var(--container),calc(100% - 40px));height:96px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border:1px solid rgba(26,65,129,.45);border-radius:30px 30px 0 30px;overflow:hidden;background:var(--pale);transform:translateX(-50%)}
 .hero-certification-logo{position:relative;min-width:0;border-right:1px solid rgba(26,65,129,.55)}
