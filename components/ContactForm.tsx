@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { ArrowIcon } from "./InteractionIcons";
 
 export function ContactForm() {
   const [status, setStatus] = useState<{ type: "idle" | "sending" | "success" | "error"; message: string }>({ type: "idle", message: "" });
@@ -44,7 +45,7 @@ export function ContactForm() {
       <label className="full">Message<textarea name="message" placeholder="Type your message here..." rows={6} required /></label>
       <label className="contact-honeypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
       <label className="check full"><input name="terms" type="checkbox" required /> <span>I agree to the terms and conditions</span></label>
-      <button className="button button-white" type="submit" disabled={status.type === "sending"}>{status.type === "sending" ? "SENDING…" : "SUBMIT"} <span>→</span></button>
+      <button className="button button-white" type="submit" disabled={status.type === "sending"}>{status.type === "sending" ? "SENDING…" : "SUBMIT"} <ArrowIcon /></button>
       {status.message && <p className={`form-status full ${status.type}`} role={status.type === "error" ? "alert" : "status"}>{status.message}</p>}
     </form>
   );

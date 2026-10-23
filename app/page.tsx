@@ -4,6 +4,7 @@ import { CertificationStrip, ContactBand, SiteShell } from "@/components/SiteShe
 import { HomeHero } from "@/components/HomeHero";
 import { FeaturedProjectsCarousel } from "@/components/FeaturedProjectsCarousel";
 import { Reveal } from "@/components/Reveal";
+import { ArrowIcon } from "@/components/InteractionIcons";
 import { services } from "@/lib/site-data";
 
 const [projectManagement, commercial, moh, education, modular] = services;
@@ -21,7 +22,7 @@ function ServiceCard({ service, layout, direction }: { service: (typeof services
     <div className="home-service-copy">
       <h3>{displayTitle}</h3>
       <p>{service.intro}</p>
-      <Link href={`/${service.slug}`}>LEARN MORE <span aria-hidden="true">→</span></Link>
+      <Link className="action-link" href={`/${service.slug}`}>LEARN MORE <ArrowIcon /></Link>
     </div>
     <div className="home-service-image">
       <Image src={service.sections[0].image} alt="" fill sizes="(max-width: 820px) 100vw, 50vw" />

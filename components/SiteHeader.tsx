@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { services } from "@/lib/site-data";
+import { ArrowIcon, ChevronIcon } from "./InteractionIcons";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -40,14 +41,14 @@ export function SiteHeader() {
           <Link className={active("/about-us") ? "active" : ""} href="/about-us">ABOUT</Link>
           <div className="nav-dropdown">
             <Link className={pathname.startsWith("/services") || services.some((item) => pathname === `/${item.slug}`) ? "active" : ""} href="/services">
-              SERVICES <span aria-hidden="true">⌄</span>
+              SERVICES <ChevronIcon direction="down" />
             </Link>
             <div className="dropdown-panel">
               {services.map((service) => <Link key={service.slug} href={`/${service.slug}`}>{service.title}</Link>)}
             </div>
           </div>
           <div className="nav-dropdown">
-            <Link className={active("/projects") ? "active" : ""} href="/projects">PROJECTS <span aria-hidden="true">⌄</span></Link>
+            <Link className={active("/projects") ? "active" : ""} href="/projects">PROJECTS <ChevronIcon direction="down" /></Link>
             <div className="dropdown-panel project-menu">
               <Link href="/projects#omakere-school">Omakere School</Link>
               <Link href="/projects#waikato-diocesan-school">Waikato Diocesan School</Link>
@@ -57,7 +58,7 @@ export function SiteHeader() {
             </div>
           </div>
           <Link className={active("/contact-us") ? "active" : ""} href="/contact-us">CONTACT</Link>
-          <a className="phone-pill" href="tel:+6478471204">07 847 1204 <span aria-hidden="true">→</span></a>
+          <a className="phone-pill" href="tel:+6478471204">07 847 1204 <ArrowIcon /></a>
         </nav>
         <button className={`menu-toggle ${open ? "open" : ""}`} onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label="Toggle menu">
           <span /><span /><span />
@@ -66,12 +67,12 @@ export function SiteHeader() {
       <div className={`mobile-panel ${open ? "open" : ""}`}>
         <Link href="/" onClick={() => setOpen(false)}>HOME</Link>
         <Link href="/about-us" onClick={() => setOpen(false)}>ABOUT</Link>
-        <button onClick={() => setServicesOpen((value) => !value)} aria-expanded={servicesOpen}>SERVICES <span>{servicesOpen ? "⌃" : "⌄"}</span></button>
+        <button onClick={() => setServicesOpen((value) => !value)} aria-expanded={servicesOpen}>SERVICES <ChevronIcon direction={servicesOpen ? "up" : "down"} /></button>
         <div className={`mobile-submenu ${servicesOpen ? "open" : ""}`}>
           <Link href="/services" onClick={() => setOpen(false)}>All services</Link>
           {services.map((service) => <Link key={service.slug} href={`/${service.slug}`} onClick={() => setOpen(false)}>{service.title}</Link>)}
         </div>
-        <Link href="/projects" onClick={() => setOpen(false)}>PROJECTS <span aria-hidden="true">⌄</span></Link>
+        <Link href="/projects" onClick={() => setOpen(false)}>PROJECTS <ChevronIcon direction="down" /></Link>
         <Link href="/contact-us" onClick={() => setOpen(false)}>CONTACT</Link>
         <a className="mobile-phone" href="tel:+6478471204">07 847 1204</a>
       </div>

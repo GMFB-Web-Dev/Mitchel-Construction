@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContactForm } from "@/components/ContactForm";
 import { Reveal } from "@/components/Reveal";
+import { ArrowIcon } from "@/components/InteractionIcons";
 import { CertificationStrip, ContactBand, Hero, SiteShell } from "@/components/SiteShell";
 import { contactItems, projects, services } from "@/lib/site-data";
 
@@ -56,13 +57,13 @@ function WhyUs() {
 
 function ServicesPage() {
   return <SiteShell><main><Hero title="Complete Construction Services Across Waikato" description="Delivering reliable education, commercial, and specialist construction services across Hamilton and the wider Waikato." image="/assets/figma/services-imgHeader02.png" primary="PROJECTS" primaryHref="/projects" />
-    <section className="section"><div className="container"><p className="eyebrow">OUR SERVICES</p><h2>WHAT WE DELIVER</h2><div className="service-list">{services.map((service,index) => <Reveal className="service-list-item" key={service.slug} direction={index%2 ? "right" : "left"} delay={(index%2)*80}><div className="service-list-image"><Image src={service.sections[0].image} alt="" fill sizes="(max-width:800px) 100vw, 50vw" /></div><div><h3>{service.title.toUpperCase()}</h3><p>{service.intro}</p><Link href={`/${service.slug}`}>LEARN MORE <span>→</span></Link></div></Reveal>)}</div></div></section>
+    <section className="section"><div className="container"><p className="eyebrow">OUR SERVICES</p><h2>WHAT WE DELIVER</h2><div className="service-list">{services.map((service,index) => <Reveal className="service-list-item" key={service.slug} direction={index%2 ? "right" : "left"} delay={(index%2)*80}><div className="service-list-image"><Image src={service.sections[0].image} alt="" fill sizes="(max-width:800px) 100vw, 50vw" /></div><div><h3>{service.title.toUpperCase()}</h3><p>{service.intro}</p><Link className="action-link" href={`/${service.slug}`}>LEARN MORE <ArrowIcon /></Link></div></Reveal>)}</div></div></section>
     <CertificationStrip /><Featured /><ContactBand />
   </main></SiteShell>;
 }
 
 function Featured() {
-  return <section className="section featured-section"><div className="container"><p className="eyebrow">PORTFOLIO</p><h2>FEATURED PROJECTS</h2><div className="project-card-grid">{projects.slice(0,3).map((project) => <div className="project-card" key={project.id}><div className="project-card-image"><Image src={project.image} alt="" fill sizes="33vw" /></div><h3>{project.title}</h3><p>{project.text}</p><Link href={`/projects#${project.id}`}>VIEW PROJECT →</Link></div>)}</div></div></section>;
+  return <section className="section featured-section"><div className="container"><p className="eyebrow">PORTFOLIO</p><h2>FEATURED PROJECTS</h2><div className="project-card-grid">{projects.slice(0,3).map((project) => <div className="project-card" key={project.id}><div className="project-card-image"><Image src={project.image} alt="" fill sizes="33vw" /></div><h3>{project.title}</h3><p>{project.text}</p><Link className="action-link" href={`/projects#${project.id}`}>VIEW PROJECT <ArrowIcon /></Link></div>)}</div></div></section>;
 }
 
 const team = [

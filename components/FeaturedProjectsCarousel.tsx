@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ArrowIcon, ChevronIcon } from "./InteractionIcons";
 
 const featured = [
   { id: "omakere-school", title: "Omakere School", image: "/assets/live/57b41dcda18010afe50a4470ca3f151a50638812.webp", text: "Staged redevelopment including temporary classrooms, demolition, site recontouring, retaining walls, modular classrooms, covered accessways, outdoor learning areas, and sports court." },
@@ -38,14 +39,14 @@ export function FeaturedProjectsCarousel() {
       <h2>FEATURED PROJECTS</h2>
       <p className="section-intro">A selection of completed projects that showcase Mitchell Construction’s experience, workmanship, and ability to deliver well-managed education, commercial, and specialist building works across the Waikato.</p>
       <div className="featured-carousel">
-        <button className="carousel-arrow carousel-arrow-left" type="button" onClick={() => move(-1)} aria-label="Previous projects">‹</button>
+        <button className="carousel-arrow carousel-arrow-left" type="button" onClick={() => move(-1)} aria-label="Previous projects"><ChevronIcon direction="left" /></button>
         <div className="featured-track" style={{ gridTemplateColumns: `repeat(${visible}, minmax(0, 1fr))` }}>
           {shown.map((project) => <article className="featured-card" key={project.id}>
             <div className="featured-card-image"><Image src={project.image} alt={project.title} fill sizes="(max-width: 820px) 100vw, 33vw" /></div>
-            <div className="featured-card-copy"><h3><Link href={`/projects#${project.id}`}>{project.title}</Link></h3><p>{project.text}</p><Link className="featured-link" href={`/projects#${project.id}`}>VIEW PROJECT <span aria-hidden="true">→</span></Link></div>
+            <div className="featured-card-copy"><h3><Link href={`/projects#${project.id}`}>{project.title}</Link></h3><p>{project.text}</p><Link className="featured-link action-link" href={`/projects#${project.id}`}>VIEW PROJECT <ArrowIcon /></Link></div>
           </article>)}
         </div>
-        <button className="carousel-arrow carousel-arrow-right" type="button" onClick={() => move(1)} aria-label="Next projects">›</button>
+        <button className="carousel-arrow carousel-arrow-right" type="button" onClick={() => move(1)} aria-label="Next projects"><ChevronIcon direction="right" /></button>
       </div>
       <div className="carousel-dots" aria-label="Project slides">{featured.map((project, index) => <button key={project.id} type="button" className={index === start ? "active" : ""} onClick={() => setStart(index)} aria-label={`Show ${project.title}`} />)}</div>
       <Link className="button outline-blue view-all" href="/projects">VIEW ALL</Link>

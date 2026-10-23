@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiteHeader } from "./SiteHeader";
 import { Reveal } from "./Reveal";
+import { ArrowIcon } from "./InteractionIcons";
 import { contactItems } from "@/lib/site-data";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
@@ -19,8 +20,8 @@ export function Hero({ title, description, image, primary = "SERVICES", primaryH
         <h1 className="hero-swipe hero-swipe-left">{title}</h1>
         <p className="hero-swipe hero-swipe-right">{description}</p>
         <div className="hero-actions">
-          <Link className="button button-white" href={primaryHref}>{primary} <span>→</span></Link>
-          <Link className="button button-ghost" href={secondaryHref}>{secondary} <span>→</span></Link>
+          <Link className="button button-white" href={primaryHref}>{primary} <ArrowIcon /></Link>
+          <Link className="button button-ghost" href={secondaryHref}>{secondary} <ArrowIcon /></Link>
         </div>
       </div>
     </section>
