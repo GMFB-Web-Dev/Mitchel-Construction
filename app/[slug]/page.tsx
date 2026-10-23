@@ -10,6 +10,11 @@ import { contactItems, projects, services } from "@/lib/site-data";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
+const serviceHeroVideos: Record<string, string> = {
+  "moh-acc-kainga-ora": "/assets/video/moh-acc-kainga-ora-drone.mp4",
+  "modular-building": "/assets/video/modular-building-hero.mp4",
+};
+
 // This catch-all page selects a complete static page from the URL slug. It must
 // resolve that slug before rendering, so opt it out of an instant shared shell.
 export const instant = false;
@@ -37,7 +42,7 @@ export default async function DynamicPage({ params }: PageProps) {
 }
 
 function ServicePage({ service }: { service: (typeof services)[number] }) {
-  const heroVideo = service.slug === "moh-acc-kainga-ora" ? "/assets/video/moh-acc-kainga-ora-drone.mp4" : undefined;
+  const heroVideo = serviceHeroVideos[service.slug];
   return <SiteShell><main><Hero title={service.heroTitle} description={service.intro} image={service.hero} video={heroVideo} /><CertificationStrip />
     <div className="detail-sections">{service.sections.map((section,index) => <section className={`section detail-section ${index%2 ? "tinted" : ""}`} key={section.title}><div className={`container split-grid ${index%2 ? "reverse" : ""}`}>
       <Reveal className="content-column" direction={index%2 ? "right" : "left"}><p className="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2>{section.body.split("\n\n").map((part) => <p key={part}>{part}</p>)}</Reveal>
