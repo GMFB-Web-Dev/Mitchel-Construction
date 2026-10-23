@@ -10,8 +10,8 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   return <><SiteHeader />{children}<SiteFooter /></>;
 }
 
-export function Hero({ title, description, image, video, primary = "SERVICES", primaryHref = "/services", secondary = "CONTACT", secondaryHref = "/contact-us", home = false }: {
-  title: string; description: string; image: string; video?: string; primary?: string; primaryHref?: string; secondary?: string; secondaryHref?: string; home?: boolean;
+export function Hero({ title, description, image, video, primary = "SERVICES", primaryHref = "/services", secondary = "CONTACT", secondaryHref = "/contact-us", home = false, outlinedActions = false, showActionArrows = true }: {
+  title: string; description: string; image: string; video?: string; primary?: string; primaryHref?: string; secondary?: string; secondaryHref?: string; home?: boolean; outlinedActions?: boolean; showActionArrows?: boolean;
 }) {
   return (
     <section className={`hero ${home ? "home-hero" : ""}`}>
@@ -23,8 +23,8 @@ export function Hero({ title, description, image, video, primary = "SERVICES", p
         <h1 className="hero-swipe hero-swipe-left">{title}</h1>
         <p className="hero-swipe hero-swipe-right">{description}</p>
         <div className="hero-actions">
-          <Link className="button button-white" href={primaryHref}>{primary} <ArrowIcon /></Link>
-          <Link className="button button-ghost" href={secondaryHref}>{secondary} <ArrowIcon /></Link>
+          <Link className={`button ${outlinedActions ? "button-ghost" : "button-white"}`} href={primaryHref}>{primary}{showActionArrows && <ArrowIcon />}</Link>
+          <Link className="button button-ghost" href={secondaryHref}>{secondary}{showActionArrows && <ArrowIcon />}</Link>
         </div>
       </div>
     </section>
