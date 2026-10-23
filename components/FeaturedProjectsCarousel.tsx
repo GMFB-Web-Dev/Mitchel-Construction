@@ -16,7 +16,7 @@ const featured = [
 
 const normalize = (value: number) => (value + featured.length) % featured.length;
 
-export function FeaturedProjectsCarousel() {
+export function FeaturedProjectsCarousel({ variant = "home" }: { variant?: "home" | "services" }) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const activeRef = useRef(0);
   const visibleRef = useRef(3);
@@ -95,7 +95,7 @@ export function FeaturedProjectsCarousel() {
     }
   };
 
-  return <section className="featured-section">
+  return <section className={`featured-section ${variant === "services" ? "services-featured" : ""}`}>
     <div className="container featured-inner">
       <Reveal className="featured-intro">
         <p className="eyebrow">PORTFOLIO</p>

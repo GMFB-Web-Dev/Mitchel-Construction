@@ -6,6 +6,7 @@ import { BadgeCheck, ClockArrowUp, Handshake, HardHat, Network } from "lucide-re
 import { ContactForm } from "@/components/ContactForm";
 import { InteractiveServiceMap } from "@/components/InteractiveServiceMap";
 import { AboutTimeline } from "@/components/AboutTimeline";
+import { FeaturedProjectsCarousel } from "@/components/FeaturedProjectsCarousel";
 import { PublicationCarousel } from "@/components/PublicationCarousel";
 import { Reveal } from "@/components/Reveal";
 import { ArrowIcon } from "@/components/InteractionIcons";
@@ -68,17 +69,8 @@ function WhyUs({ title }: { title: string }) {
 function ServicesPage() {
   return <SiteShell><main className="services-page"><Hero title="Complete Construction Services Across Waikato" description="Delivering reliable education, commercial, and specialist construction services across Hamilton and the wider Waikato." image="/assets/figma/services-imgHeader02.png" primary="PROJECTS" primaryHref="/projects" certifications outlinedActions showActionArrows={false} />
     <section className="section services-deliver"><div className="container"><p className="eyebrow">OUR SERVICES</p><h2>WHAT WE DELIVER</h2><div className="service-showcase">{services.map((service,index) => <Reveal className={`service-showcase-card service-showcase-${service.slug}`} key={service.slug} direction={index%2 ? "right" : "left"} delay={(index%2)*80}><div className="service-showcase-copy"><h3>{service.title.toUpperCase()}</h3><p>{service.cardIntro}</p><Link className="action-link" href={`/${service.slug}`}>LEARN MORE <ArrowIcon /></Link></div><div className="service-showcase-image"><Image src={service.slug === "moh-acc-kainga-ora" ? "/assets/figma/moh-imgPlaceholderImage2.png" : service.sections[0].image} alt="" fill sizes="(max-width:820px) 90vw, 50vw" /></div></Reveal>)}</div></div></section>
-    <Featured /><ContactBand showMap={false} />
+    <FeaturedProjectsCarousel variant="services" /><ContactBand showMap={false} />
   </main></SiteShell>;
-}
-
-function Featured() {
-  const featuredProjects = [
-    { ...projects[0], title: "LIC – Main Reception / Cafeteria / Boardroom building" },
-    projects[1],
-    { ...projects[2], title: "LIC Block A ST Genetics Laboratory – PC2 Laboratory" },
-  ];
-  return <section className="section featured-section services-featured"><div className="container"><p className="eyebrow">PORTFOLIO</p><h2>FEATURED PROJECTS</h2><p className="section-intro">A selection of completed projects that showcase Mitchell Construction’s experience, workmanship, and ability to deliver well-managed education, commercial, and specialist building works across the Waikato.</p><div className="project-card-grid">{featuredProjects.map((project) => <article className="project-card" key={project.id}><div className="project-card-image"><Image src={project.image} alt={project.title} fill sizes="(max-width:820px) 90vw, 33vw" /></div><div className="project-card-copy"><h3>{project.title}</h3><p>{project.text}</p><Link className="action-link" href={`/projects#${project.id}`}>VIEW PROJECT <ArrowIcon /></Link></div></article>)}</div></div></section>;
 }
 
 const team = [
