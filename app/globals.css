@@ -275,19 +275,20 @@ p{margin-bottom:22px}
 .wider-team-card h3{margin:0;color:#fff;font-size:13px;font-weight:500;text-transform:uppercase}
 .wider-team-card p{margin:1px 0 0;font-size:11px;line-height:1.25}
 
-.projects-page{padding-bottom:54px;background:#fff}
-.projects-list{margin-top:76px}
-.project-group{padding:54px 0 10px;background:#fff}
-.project-group.tinted{background:var(--pale);border-radius:30px 30px 0 30px}
-.project-group .projects-list{margin-top:0}
-.project-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin:0 0 120px;scroll-margin-top:110px}
-.project-row:last-child{margin-bottom:54px}
-.project-row.reverse .project-row-image{order:2}
-.project-row-image{position:relative;height:530px;border-radius:56px 56px 0 56px;overflow:hidden}
-.project-row-image img{object-fit:cover}
-.project-row-copy{padding:30px}
-.project-row-copy h3{font-size:31px}
-.project-row-copy p{font-size:17px;line-height:1.65}
+.project-collection{padding:78px 0 86px;background:#fff}
+.project-collection.projects-page{padding-top:92px}
+.project-collection.tinted{width:calc(100% - 48px);margin-inline:auto;border-radius:30px 30px 0 30px;background:var(--pale)}
+.projects-heading{margin-bottom:42px}
+.projects-heading h2{max-width:1150px;margin-bottom:0;font-size:48px}
+.projects-two-column{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:44px}
+.project-column{display:flex;min-width:0;flex-direction:column;gap:72px}
+.project-listing{scroll-margin-top:110px}
+.project-listing-image{position:relative;width:100%;aspect-ratio:1.58;border-radius:34px 34px 0 34px;box-shadow:-8px 8px 0 var(--mid);overflow:hidden;background:#e9edf3}
+.project-listing-image img{object-fit:cover}
+.project-listing#kainga-ora .project-listing-image img{object-position:center 65%}
+.project-listing h3{margin:24px 0 12px;color:var(--blue);font-size:22px;line-height:1.3;text-transform:uppercase}
+.project-listing p{margin-bottom:20px;font-size:15px;line-height:1.55}
+.project-listing p:last-child{margin-bottom:0}
 
 .contact-page{padding:42px 0 92px}
 .contact-form{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:80px;padding:55px;background:var(--pale);border-radius:34px 34px 0 34px}
@@ -390,9 +391,13 @@ p{margin-bottom:22px}
   .team-featured{gap:30px;margin-bottom:68px}
   .team-featured-image{height:480px}
   .wider-team{grid-template-columns:1fr 1fr}
-  .project-row,.project-row.reverse{grid-template-columns:1fr;margin-bottom:85px}
-  .project-row.reverse .project-row-image{order:initial}
-  .project-row-image{height:450px}
+  .projects-two-column{display:flex;flex-direction:column;gap:72px}
+  .project-collection.tinted{width:calc(100% - 28px)}
+  .project-column{display:contents}
+  .project-order-0{order:0}
+  .project-order-1{order:1}
+  .project-order-2{order:2}
+  .project-order-3{order:3}
   .contact-form{grid-template-columns:1fr;padding:35px 25px}
   .contact-form label,.contact-form .full{grid-column:1}
 }
@@ -411,7 +416,9 @@ p{margin-bottom:22px}
   .framed-image,.detail-image{min-height:390px}
   .service-card-copy{padding:28px}
   .cert-logo{width:88px;height:60px}
-  .project-card-image,.project-row-image{height:330px}
+  .project-card-image{height:330px}
+  .projects-heading h2{font-size:34px}
+  .project-listing h3{font-size:20px}
   .contact-band h2,.contact-page h2{font-size:34px}
   .team-section>.container>h2{margin-bottom:48px;font-size:36px}
   .team-featured{gap:28px;margin-bottom:58px}

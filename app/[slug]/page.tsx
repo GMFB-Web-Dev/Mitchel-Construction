@@ -122,9 +122,38 @@ function AboutPage() {
 }
 
 function ProjectsPage() {
+  const projectById = new Map(projects.map((project) => [project.id, project]));
+  const projectGroups = [
+    {
+      tinted: false,
+      columns: [
+        ["lic-main-reception", "st-johns-college-block-c"],
+        ["lic-block-a", "st-johns-ambulance"],
+      ],
+    },
+    {
+      tinted: true,
+      columns: [
+        ["pragma-rise", "the-boulevard"],
+        ["sudima-hotel", "te-kura-o-te-koutu"],
+      ],
+    },
+    {
+      tinted: false,
+      columns: [
+        ["kainga-ora", "waikato-diocesan-school"],
+        ["university-waikato", "omakere-school"],
+      ],
+    },
+    {
+      tinted: false,
+      columns: [["turangawaewae-marae"], []],
+    },
+  ];
+
   return <SiteShell><main><Hero title="OUR PROJECTS" description="Explore a selection of completed projects showcasing Mitchell Construction’s experience across education, commercial, and specialist building works." image="/assets/figma/projects-imgHeader02.png" />
-    <section className="section projects-page"><div className="container"><p className="eyebrow">OUR PROJECTS</p><h2>Built Work That Shows Real Experience</h2></div></section>
-    {[projects.slice(0,4), projects.slice(4,8), projects.slice(8)].map((group,groupIndex) => <section className={`section project-group ${groupIndex === 1 ? "tinted" : ""}`} key={group[0].id}><div className="container projects-list">{group.map((project,index) => { const absoluteIndex = groupIndex * 4 + index; return <article id={project.id} key={project.id} className={`project-row ${absoluteIndex%2 ? "reverse" : ""}`}><Reveal className="project-row-image" direction={absoluteIndex%2 ? "right" : "left"}><Image src={project.image} alt={project.title} fill sizes="(max-width:800px) 100vw, 50vw" /></Reveal><Reveal className="project-row-copy" direction={absoluteIndex%2 ? "left" : "right"}><h3>{project.title}</h3><p>{project.text}</p>{project.details.split("\n\n").map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</Reveal></article>;})}</div></section>)}<ContactBand showMap={false} />
+    {projectGroups.map((group, groupIndex) => <section className={`section project-collection ${group.tinted ? "tinted" : ""} ${groupIndex === 0 ? "projects-page" : ""}`} key={groupIndex}><div className="container">{groupIndex === 0 && <div className="projects-heading"><p className="eyebrow">OUR PROJECTS</p><h2>BUILT WORK THAT SHOWS REAL EXPERIENCE</h2></div>}<div className="projects-two-column">{group.columns.map((column, columnIndex) => <div className="project-column" key={columnIndex}>{column.map((id, index) => { const project = projectById.get(id); if (!project) return null; return <article id={project.id} className={`project-listing project-order-${columnIndex + index * 2}`} key={project.id}><Reveal direction={columnIndex ? "right" : "left"} delay={index * 70}><div className="project-listing-image"><Image src={project.image} alt={project.title} fill sizes="(max-width:800px) 100vw, 50vw" /></div><h3>{project.title}</h3><p>{project.text}</p>{project.details.split("\n\n").map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</Reveal></article>;})}</div>)}</div></div></section>)}
+    <ContactBand showMap={false} />
   </main></SiteShell>;
 }
 

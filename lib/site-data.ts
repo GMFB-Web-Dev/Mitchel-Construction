@@ -243,22 +243,22 @@ export const projects = [
     details: "The project involved the construction of a new single-storey building with a total floor area of approximately 330m².\n\nThe scope of works included concrete floor construction, structural steel frames, timber framing, and associated building works.\n\nThe site works included concrete paving, mowing strips, grassing, and external finishing works to complete the project to the required standard.",
   },
   {
-    id: "kainga-ora", title: "Kainga Ora – 26A Lawrence Street, Te Kuiti", image: "/assets/figma/projects-imgPlaceholderImage8.png",
+    id: "kainga-ora", title: "Kainga Ora – 26A Lawrence Street, Te Kuiti", image: "/assets/figma/projects-imgHeader02.png",
     text: "Mitchell Construction Ltd was the main contractor for this Kāinga Ora project, delivered between July 2024 and July 2025.",
     details: "The project involved the construction of a new subdivision made up of 11 residential units. This included four 3-bedroom double-storey duplexes, four 2-bedroom double-storey duplexes, two 4-bedroom double-storey duplexes, and one 2-bedroom single-storey standalone unit.\n\nThe scope of works included subdivision construction, residential building works, private JOAL access for all units, and an 80-metre public road, which was handed over to NZTA at the end of the contract.\n\nThe project required careful coordination across multiple dwellings, shared access areas, civil works, and programme requirements to deliver a complete residential development to the required standard.",
   },
   {
-    id: "university-waikato", title: "University of Waikato – Student Union Building Fitout", image: "/assets/figma/projects-imgPlaceholderImage9.png",
+    id: "university-waikato", title: "University of Waikato – Student Union Building Fitout", image: "/assets/figma/projects-imgPlaceholderImage8.png",
     text: "Mitchell Construction Limited was the main contractor for this project, delivered between October 2019 and February 2020.",
     details: "The project involved the internal refurbishment and fit-out of an existing space, including the strip-out of internal walls, ceilings, and associated finishes.\n\nThe new fit-out included the installation of kitchen units, seating areas, ceilings, wall linings, and new flooring throughout the refurbished areas.\n\nThe works required careful coordination of demolition, services, finishes and joinery to create a refreshed interior environment suitable for continued use by the client, staff, and building occupants within the existing building.",
   },
   {
-    id: "waikato-diocesan-school", title: "Waikato Diocesan School for Girls – Sports Education Centre", image: "/assets/figma/projects-imgPlaceholderImage10.png",
+    id: "waikato-diocesan-school", title: "Waikato Diocesan School for Girls – Sports Education Centre", image: "/assets/figma/projects-imgPlaceholderImage9.png",
     text: "Mitchell Construction Limited was the main contractor for this project, completed for the Board of Waikato Diocesan School.",
     details: "The project involved the construction of a new two-storey sports education centre with a total floor area of approximately 1,200m².\n\nThe facility included fitness and changing rooms, classrooms, offices, and the school uniform and stationery shop.\n\nThe building featured concrete and steel construction with brick, glass, and cedar cladding, along with sustainable design elements including rainwater harvesting, natural ventilation, recycled aggregate concrete, and waste tracking. The project also included extensive decking, landscaping, and planting.",
   },
   {
-    id: "omakere-school", title: "Omakere School", image: "/assets/figma/projects-imgPlaceholderImage11.png",
+    id: "omakere-school", title: "Omakere School", image: "/assets/figma/projects-imgPlaceholderImage10.png",
     text: "Mitchell Construction Limited was the main contractor for this staged project, delivered between November 2024 and December 2025.",
     details: "The project involved relocating the school into temporary Portacom classrooms, including service connections, toilet facilities, decks, ramps, verandahs, and outdoor learning areas.\n\nFollowing relocation, the existing classroom block, hardstand areas, tennis courts, and services were demolished and cleared for redevelopment.\n\nThe final stage included site recontouring, retaining walls, piling, and the installation of two modular classroom buildings with integrated amenities, covered accessways, coloured concrete outdoor areas, and an Astro Turf tennis and netball court.",
   },
