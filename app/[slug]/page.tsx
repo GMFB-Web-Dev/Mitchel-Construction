@@ -20,6 +20,14 @@ const serviceHeroVideos: Record<string, string> = {
   "modular-building": "/assets/video/modular-building-hero.mp4",
 };
 
+const serviceShowcaseImages: Record<string, string> = {
+  "project-management": "/assets/figma/services-imgPlaceholderImage.png",
+  "commercial-construction": "/assets/figma/services-imgPlaceholderImage5.png",
+  "moh-acc-kainga-ora": "/assets/figma/services-imgPlaceholderImage4.png",
+  "education-projects": "/assets/figma/services-imgPlaceholderImage6.png",
+  "modular-building": "/assets/figma/services-imgPlaceholderImage7.png",
+};
+
 // This catch-all page selects a complete static page from the URL slug. It must
 // resolve that slug before rendering, so opt it out of an instant shared shell.
 export const instant = false;
@@ -66,12 +74,12 @@ function WhyUs({ title }: { title: string }) {
     ["Strong track record across Waikato projects", "We have delivered a wide range of school and commercial projects throughout the Waikato, with previous work including classroom builds, refurbishments, accessibility upgrades, temporary classroom placement, and redevelopment works for numerous schools and organisations."],
     ["Commitment to quality, safety, and dependable delivery", "As a Registered Master Builder, Mitchell Construction positions itself around high-quality workmanship, strong customer service, and careful project execution. Their team also holds relevant Site Safe and Licensed Building Practitioner credentials, reinforcing a focus on safety, professionalism, and accountability."],
   ];
-  return <section className="section why-section"><div className="container"><p className="eyebrow">WHY US</p><h2>{title}</h2><div className="why-grid">{items.map(([itemTitle,copy],i) => <Reveal key={itemTitle} direction={i%2 ? "right" : "left"} delay={(i%2)*80}><h3>{itemTitle}</h3><p>{copy}</p></Reveal>)}</div></div></section>;
+  return <section className="section why-section"><div className="container"><p className="eyebrow">WHY US</p><h2>{title}</h2><div className="why-grid">{items.map(([itemTitle,copy],i) => <Reveal key={itemTitle} direction={i%2 ? "right" : "left"} delay={(i%2)*80}><h3>{itemTitle}</h3><p>{copy}</p></Reveal>)}</div><div className="why-actions"><Link className="button outline-blue" href="/projects">PROJECTS</Link><Link className="button outline-blue" href="/contact-us">CONTACT US</Link></div></div></section>;
 }
 
 function ServicesPage() {
   return <SiteShell><main className="services-page"><Hero title="Complete Construction Services Across Waikato" description="Delivering reliable education, commercial, and specialist construction services across Hamilton and the wider Waikato." image="/assets/figma/services-imgHeader02.png" primary="PROJECTS" primaryHref="/projects" certifications outlinedActions showActionArrows={false} />
-    <section className="section services-deliver"><div className="container"><p className="eyebrow">OUR SERVICES</p><h2>WHAT WE DELIVER</h2><div className="service-showcase">{services.map((service,index) => <Reveal className={`service-showcase-card service-showcase-${service.slug}`} key={service.slug} direction={index%2 ? "right" : "left"} delay={(index%2)*80}><div className="service-showcase-copy"><h3>{service.title.toUpperCase()}</h3><p>{service.cardIntro}</p><Link className="action-link" href={`/${service.slug}`}>LEARN MORE <ArrowIcon /></Link></div><div className="service-showcase-image"><Image src={service.slug === "moh-acc-kainga-ora" ? "/assets/figma/moh-imgPlaceholderImage2.png" : service.sections[0].image} alt="" fill sizes="(max-width:820px) 90vw, 50vw" /></div></Reveal>)}</div></div></section>
+    <section className="section services-deliver"><div className="container"><p className="eyebrow">OUR SERVICES</p><h2>WHAT WE DELIVER</h2><div className="service-showcase">{services.map((service,index) => <Reveal className={`service-showcase-card service-showcase-${service.slug}`} key={service.slug} direction={index%2 ? "right" : "left"} delay={(index%2)*80}><div className="service-showcase-copy"><h3>{service.title.toUpperCase()}</h3><p>{service.cardIntro}</p><Link className="action-link" href={`/${service.slug}`}>LEARN MORE <ArrowIcon /></Link></div><div className="service-showcase-image"><Image src={serviceShowcaseImages[service.slug]} alt={`${service.title} project`} fill sizes="(max-width:820px) 90vw, 50vw" /></div></Reveal>)}</div></div></section>
     <FeaturedProjectsCarousel variant="services" /><ContactBand showMap={false} />
   </main></SiteShell>;
 }
