@@ -112,7 +112,7 @@ const widerTeam = [
 
 const teamPortraitPositions: Record<string, string> = {
   "Paul Findsen": "center 38%",
-  "Bradley Mitchell": "center 35%",
+  "Bradley Mitchell": "center 25%",
   "Ryan Young": "center 22%",
   "Harry van den Berg": "center 22%",
   "Kelvin Patchell": "center 43%",
@@ -123,8 +123,8 @@ const widerTeamPortraitPositions: Record<string, string> = {
   "Denise Mitchell": "center 40%",
   "Grant Frew": "center 40%",
   "Cameron Mackintosh": "center 48%",
-  "Sam Christie": "center 75%",
-  "Glenn Wilson": "center 62%",
+  "Sam Christie": "center 60%",
+  "Glenn Wilson": "center 50%",
   "Todd Barakat": "center 52%",
 };
 
