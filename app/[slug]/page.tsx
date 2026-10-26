@@ -107,6 +107,7 @@ const teamPortraitPositions: Record<string, string> = {
   "Bradley Mitchell": "center 35%",
   "Ryan Young": "center 22%",
   "Harry van den Berg": "center 22%",
+  "Kelvin Patchell": "center 43%",
 };
 
 function AboutPage() {
