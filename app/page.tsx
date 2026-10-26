@@ -9,6 +9,14 @@ import { services } from "@/lib/site-data";
 
 const [projectManagement, commercial, moh, education, modular] = services;
 
+const homeServiceImages: Record<(typeof services)[number]["slug"], string> = {
+  "project-management": "/assets/figma/projects-imgPlaceholderImage.png",
+  "commercial-construction": "/assets/figma/projects-imgPlaceholderImage5.png",
+  "moh-acc-kainga-ora": "/assets/figma/moh-imgPlaceholderImage1.png",
+  "education-projects": "/assets/figma/education-imgPlaceholderImage.png",
+  "modular-building": "/assets/video/modular-section-installation-poster.jpg",
+};
+
 function ProofIcon() {
   return <svg className="proof-icon" viewBox="0 0 40 40" aria-hidden="true">
     <circle cx="20" cy="20" r="20" />
@@ -25,7 +33,7 @@ function ServiceCard({ service, layout, direction }: { service: (typeof services
       <Link className="action-link" href={`/${service.slug}`}>LEARN MORE <ArrowIcon /></Link>
     </div>
     <div className="home-service-image">
-      <Image src={service.sections[0].image} alt="" fill sizes="(max-width: 820px) 100vw, 50vw" />
+      <Image src={homeServiceImages[service.slug]} alt="" fill sizes="(max-width: 820px) 100vw, 50vw" />
     </div>
   </Reveal>;
 }
