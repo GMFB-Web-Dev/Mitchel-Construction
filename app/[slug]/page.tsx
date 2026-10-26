@@ -103,6 +103,8 @@ const widerTeam = [
 ];
 
 const teamPortraitPositions: Record<string, string> = {
+  "Paul Findsen": "center 38%",
+  "Bradley Mitchell": "center 35%",
   "Ryan Young": "center 22%",
   "Harry van den Berg": "center 22%",
 };
