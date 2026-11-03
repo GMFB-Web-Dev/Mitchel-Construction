@@ -269,7 +269,7 @@ p{margin-bottom:22px}
 .team-card-copy{text-align:center}
 .team-card-copy p{max-width:610px;margin:0 auto 20px;font-size:15px;line-height:1.45}
 .wider-team{display:grid;grid-template-columns:repeat(3,1fr);gap:54px 28px;margin-top:82px}
-.wider-team-card{position:relative;height:245px;overflow:hidden;border-radius:28px 28px 0 28px;box-shadow:-6px 6px 0 var(--mid);background:#e8edf3}
+.wider-team-card{position:relative;height:auto;aspect-ratio:1.4;overflow:hidden;border-radius:28px 28px 0 28px;box-shadow:-6px 6px 0 var(--mid);background:#e8edf3}
 .wider-team-card img{object-fit:cover;object-position:center top}
 .wider-team-card>div{position:absolute;z-index:2;left:0;bottom:0;min-width:178px;padding:9px 14px 8px;background:var(--blue);color:#fff}
 .wider-team-card h3{margin:0;color:#fff;font-size:13px;font-weight:500;text-transform:uppercase}

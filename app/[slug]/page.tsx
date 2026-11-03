@@ -119,7 +119,7 @@ const teamPortraitPositions: Record<string, string> = {
 };
 
 const widerTeamPortraitPositions: Record<string, string> = {
-  "Nicola Will": "center 60%",
+  "Nicola Will": "center 50%",
   "Denise Mitchell": "center 40%",
   "Grant Frew": "center 40%",
   "Cameron Mackintosh": "center 48%",
