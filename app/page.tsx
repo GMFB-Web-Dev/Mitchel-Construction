@@ -13,8 +13,8 @@ const homeServiceImages: Record<(typeof services)[number]["slug"], string> = {
   "project-management": "/assets/figma/projects-imgPlaceholderImage.png",
   "commercial-construction": "/assets/figma/projects-imgPlaceholderImage5.png",
   "moh-acc-kainga-ora": "/assets/figma/moh-imgPlaceholderImage1.png",
-  "education-projects": "/assets/figma/education-imgPlaceholderImage.png",
-  "modular-building": "/assets/video/modular-section-installation-poster.jpg",
+  "education-projects": "/assets/figma/projects-imgPlaceholderImage9.png",
+  "modular-building": "/assets/figma/services-imgPlaceholderImage7.png",
 };
 
 function ProofIcon() {
